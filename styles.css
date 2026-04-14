@@ -1,0 +1,200 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONFIGURACIÓN GLOBAL */
+body {
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: "Ubuntu", sans-serif;
+    line-height: 1.6;
+    background: #f4f7fb;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    min-height: 100vh;
+    background: linear-gradient(to right, #07358a, #025dfc);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Imagen Header */
+.viene-pronto {
+    width: 100%;
+    max-width: 600px; /* limita tamaño en pantallas grandes */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    
+    /* sombra suave */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    
+    /* transición suave */
+    transition: transform 0.3s ease;
+}
+
+/* efecto al pasar el mouse (solo desktop) */
+.viene-pronto:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+
+    .viene-pronto {
+        max-width: 100%;
+        border-radius: 6px;
+    }
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+
+/* SECCIONES */
+section {
+    background: white;
+    margin: 20px 0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* CONTENEDOR GENERAL */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.fade-section {  /* → estado inicial (invisible) */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-section.visible { /* → estado final (visible) */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* TÍTULOS */
+h2 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.btn-serie {
+    display: inline-block;
+    background-color: #e50914;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-serie:hover {
+    background-color: #b20710;
+}
+
+/* ÍCONOS EN TEXTO */
+.icon {
+    color: #2a5298;
+    margin: 0 6px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* LISTAS */
+ul {
+    margin: 10px 0 15px 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* LINKS */
+a {
+    color: #2a5298;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TESTIMONIO */
+article {
+    border-left: 4px solid #2a5298;
+    padding-left: 15px;
+}
+
+/* FAQ (details) */
+details {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f1f4f9;
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+details p {
+    margin-top: 10px;
+}
+
+/* EFECTO HOVER SUAVE EN SECCIONES */
+section:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1e3c72;
+    color: white;
+    margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
