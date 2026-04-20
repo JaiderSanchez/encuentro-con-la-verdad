@@ -15,3 +15,22 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+
+// JS DE LOS MODALES
+const explicaciones = {
+    salmo119: {
+        titulo: "Salmos 119:9",
+        texto: "Este versículo enseña que los jóvenes pueden vivir correctamente si siguen la palabra de Dios. Es una guía práctica para tomar decisiones correctas."
+    }
+};
+
+function abrirModal(id) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal-titulo').innerText = explicaciones[id].titulo;
+    document.getElementById('modal-texto').innerText = explicaciones[id].texto;
+}
+
+function cerrarModal() {
+    document.getElementById('modal').style.display = 'none';
+}
