@@ -16,6 +16,11 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
+// CONSTANTES MENÚ HAMBURGUESA
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+const icon = toggle.querySelector("i");
+const links = document.querySelectorAll(".nav-links a");
 
 // JS DE LOS MODALES
 const explicaciones = {
@@ -63,3 +68,30 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+
+// Lógica Menú Hamburguesa
+if (toggle && nav && icon) {
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+    });
+}
+
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    });
+});
+
+document.addEventListener("click", (e) => {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove("active");
+        resetIcon();
+    }
+});
