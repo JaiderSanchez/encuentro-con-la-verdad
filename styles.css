@@ -317,9 +317,9 @@ section {
 
 /* CONTENEDOR GENERAL */
 main {
-    max-width: 900px;
+    max-width: 700px; /* mejor lectura */
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 
