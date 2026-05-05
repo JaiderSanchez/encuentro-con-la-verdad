@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versículos</title>
+
+
+    <link rel="stylesheet" href="verses.css">
+
+    <!-- Etiquetas meta -->
+    <meta name="description" content="Testimonio personal sobre fe, búsqueda espiritual y experiencia de vida.">
+
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <!-- ÍCONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+    <nav class="navbar">
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <h1 class="logo">Logo</h1>  <!-- Pendiente logo -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Fe</a></li>
+            <li><a href="testimony-view/testimony.html">Testimonio</a></li>
+            <li><a href="../index.html" class="volver">← Volver</a></li>
+        </ul>
+</nav>
+
+
+<main>
+
+    <!-- VERSÍCULOS BÍBLICOS -->
+    <section class="fade-section">
+        <h2>Versículos que transforman <i class="fa-solid fa-book-bible icon"></i></h2>
+
+        <!-- VERSÍCULO 1 -->
+        <article class="versiculo">
+            <h3>Salmos 119:9 <i class="fa-solid fa-child icon"></i></h3>
+
+            <p class="version">
+                <strong>RVR1960:</strong><br>
+                ¿Con qué limpiará el joven su camino? Con guardar tu palabra 
+                <i class="fa-solid fa-sparkles icon"></i>.
+            </p>
+
+            <p class="version">
+                <strong>TLA:</strong><br>
+                Solo obedeciendo tu palabra puede el joven corregir su vida 
+                <i class="fa-solid fa-check icon"></i>.
+            </p>
+
+            <button class="btn-explicacion" onclick="abrirModal('salmo119')">
+                📖 Explicación
+            </button>
+        </article>
+
+        <!-- VERSÍCULO 2 -->
+        <article class="versiculo">
+            <h3>Juan 3:16 <i class="fa-solid fa-heart icon"></i></h3>
+
+            <p class="version">
+                <strong>RVR1960:</strong><br>
+                Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito,
+                para que todo aquel que en él cree, no se pierda, mas tenga vida eterna 
+                <i class="fa-solid fa-infinity icon"></i>.
+            </p>
+
+            <p class="version">
+                <strong>TLA:</strong><br>
+                Dios amó tanto al mundo que dio a su único Hijo, para que todo el que crea en él
+                tenga vida eterna y no muera 
+                <i class="fa-solid fa-dove icon"></i>.
+            </p>
+
+            
+            <button class="btn-explicacion" onclick="abrirModal('juan316')">
+                📖 Explicación
+            </button>
+        </article>
+
+        <!-- VERSÍCULO 3 -->
+        <article class="versiculo">
+            <h3>Jeremías 29:11 <i class="fa-solid fa-seedling icon"></i></h3>
+
+            <p class="version">
+                <strong>RVR1960:</strong><br>
+                Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová,
+                pensamientos de paz, y no de mal, para daros el fin que esperáis 
+                <i class="fa-solid fa-peace icon"></i>.
+            </p>
+
+            <p class="version">
+                <strong>TLA:</strong><br>
+                Yo sé muy bien los planes que tengo para ustedes: planes de bienestar y no de desastre,
+                a fin de darles un futuro lleno de esperanza 
+                <i class="fa-solid fa-star icon"></i>.
+            </p>
+
+            <button class="btn-explicacion" onclick="abrirModal('jeremias2911')">
+                📖 Explicación
+            </button>
+        </article>
+
+        <!-- VERSÍCULO 4 -->
+        <article class="versiculo">
+            <h3>Filipenses 4:13 <i class="fa-solid fa-bolt icon"></i></h3>
+
+            <p class="version">
+                <strong>RVR1960:</strong><br>
+                Todo lo puedo en aquel que me fortalece 
+                <i class="fa-solid fa-dumbbell icon"></i>.
+            </p>
+
+            <p class="version">
+                <strong>TLA:</strong><br>
+                Cristo me da fuerzas para enfrentar cualquier situación 
+                <i class="fa-solid fa-fire icon"></i>.
+            </p>
+
+            <button class="btn-explicacion" onclick="abrirModal('filipenses413')">
+                📖 Explicación
+            </button>
+        </article>
+
+    </section>
+</main>
+
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <p>&copy; 2026 - Encuentro con la verdad</p>
+</footer>
+
+
+<!-- MODALES -->
+<div id="modal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h3 id="modal-titulo"></h3>
+        <p id="modal-texto"></p>
+    </div>
+</div>
+    
+    <script src="verses.js"></script>
+</body>
+</html>
