@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Versículos que transforman">
+    <meta property="og:description" content="Testimonio personal sobre fe y vida.">
+    <meta property="og:type" content="website">
+
     <title>Versículos</title>
 
 
@@ -24,14 +29,15 @@
 <!-- NAVBAR -->
     <nav class="navbar">
         <!-- Botón hamburguesa -->
-        <button class="menu-toggle" id="menu-toggle">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
 
         <h1 class="logo">Logo</h1>  <!-- Pendiente logo -->
         <ul class="nav-links" id="nav-links">
             <li><a href="#">Fe</a></li>
-            <li><a href="testimony-view/testimony.html">Testimonio</a></li>
+            <li><a href="/testimony-view/testimony.html">Testimonio</a></li>
+            <li><a href="contacto.html">Contáctanos</a></li>
             <li><a href="../index.html" class="volver">← Volver</a></li>
         </ul>
 </nav>
@@ -143,7 +149,7 @@
 
 
 <!-- MODALES -->
-<div id="modal" class="modal">
+<div id="modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-contenido">
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
         <h3 id="modal-titulo"></h3>
@@ -151,6 +157,6 @@
     </div>
 </div>
     
-    <script src="verses.js"></script>
+    <script src="verses.js" defer></script>
 </body>
 </html>
