@@ -9,7 +9,8 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.2
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
 });
 
 sections.forEach(section => {
@@ -47,33 +48,53 @@ const explicaciones = {
 
 function abrirModal(id) {
     const data = explicaciones[id];
+    if (!data) return;
 
-    if (!data) {
-        console.error("No existe explicación para: ", id);
-        return;
-    }
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+    modal.setAttribute("aria-hidden", "false");
 
-    document.getElementById('modal').style.display = 'flex';
     document.getElementById('modal-titulo').innerText = data.titulo;
     document.getElementById('modal-texto').innerText = data.texto;
+
+    // Enfocar el botón de cerrar para accesibilidad
+    document.querySelector('.cerrar').focus();
 }
 
 function cerrarModal() {
-    document.getElementById('modal').style.display = 'none';
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    modal.setAttribute("aria-hidden", "true");
 }
 
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        cerrarModal();
     }
-}
+});
+
+
+// window.onclick = function(event) {
+//     const modal = document.getElementById('modal');
+//     if (event.target === modal) {
+//         modal.style.display = 'none';
+//     }
+// }
+
+document.querySelectorAll(".btn-explicacion").forEach(btn => {
+    btn.addEventListener("click", () => {
+        abrirModal(btn.getAttribute("onclick").match(/'(.*?)'/)[1]);
+    });
+});
+
+
 
 // Lógica Menú Hamburguesa
 if (toggle && nav && icon) {
     toggle.addEventListener("click", () => {
-        nav.classList.toggle("active");
-
+        const expanded = nav.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", expanded);
         icon.classList.toggle("fa-bars");
         icon.classList.toggle("fa-xmark");
     });
@@ -89,9 +110,8 @@ links.forEach(link => {
     });
 });
 
-document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-        nav.classList.remove("active");
-        resetIcon();
-    }
-});
+
+function resetIcon() {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+}
