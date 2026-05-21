@@ -50,6 +50,7 @@
     background: none;
     border: none;
     color: white;
+    z-index: 1100;
 }
 
 .menu-toggle i {

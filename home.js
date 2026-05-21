@@ -16,6 +16,13 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
+
+function resetIcon() {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+}
+
+
 // CONSTANTES MENÚ HAMBURGUESA
 const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav-links");

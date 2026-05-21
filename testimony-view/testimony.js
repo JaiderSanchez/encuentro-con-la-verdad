@@ -1,9 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const section = document.querySelector(".fade-section");
-    if (section) {
-        section.classList.add("visible");
-    }
-})
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible'); // para animar también al subir
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+
+function resetIcon() {
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+}
+
+
+// CONSTANTES MENÚ HAMBURGUESA
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+const icon = toggle.querySelector("i");
+const links = document.querySelectorAll(".nav-links a");
+
 
 // Lógica Menú Hamburguesa
 if (toggle && nav && icon) {
@@ -31,4 +56,3 @@ document.addEventListener("click", (e) => {
         resetIcon();
     }
 });
-

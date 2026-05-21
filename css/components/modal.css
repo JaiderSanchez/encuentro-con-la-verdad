@@ -11,14 +11,14 @@
 }
 
 .modal-contenido {
-    background: white;
+    background: var(--white);
     padding: 20px;
     border-radius: 10px;
 
     max-width: 500px;
     width: 90%;
     
-    overflow-wrap: break-word; /* 🔥 evita desbordes de texto */
+    overflow-wrap: break-word; /* 🔥 Evita desbordes de texto */
 }
 
 .cerrar {
