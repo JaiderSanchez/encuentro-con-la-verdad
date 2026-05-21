@@ -75,13 +75,6 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-// window.onclick = function(event) {
-//     const modal = document.getElementById('modal');
-//     if (event.target === modal) {
-//         modal.style.display = 'none';
-//     }
-// }
-
 document.querySelectorAll(".btn-explicacion").forEach(btn => {
     btn.addEventListener("click", () => {
         abrirModal(btn.getAttribute("onclick").match(/'(.*?)'/)[1]);
