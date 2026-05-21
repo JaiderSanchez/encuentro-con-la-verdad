@@ -1,0 +1,225 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+img {
+    max-width: 100%;
+}
+
+
+
+/* Imagen Header */
+.viene-pronto {
+    width: 100%;
+    max-width: 600px; /* limita tamaño en pantallas grandes */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    
+    /* sombra suave */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    
+    /* transición suave */
+    transition: transform 0.3s ease;
+}
+
+/* efecto al pasar el mouse (solo desktop) */
+.viene-pronto:hover {
+    transform: scale(1.03);
+}
+
+
+
+/* SECCIONES */
+section {
+    background: white;
+    margin: 20px 0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+
+/* PROPIEDADES DE esperanza-contenido */
+
+.esperanza-contenido {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.esperanza-texto {
+    flex: 1;
+}
+
+.esperanza-img {
+    flex: 1;
+    text-align: center;
+}
+
+.esperanza-img img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Propiedades CSS de conoce-contenido */
+
+.conoce-contenido {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.conoce-texto {
+    flex: 1;
+}
+
+.conoce-img {
+    flex: 1;
+    text-align: center;
+}
+
+.conoce-img img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+.fe-contenido {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.fe-texto {
+    flex: 1;
+}
+
+.fe-img {
+    flex: 1;
+    text-align: center;
+}
+
+.fe-img img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.faq-img {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 8px;
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* CONTENEDOR GENERAL */
+main {
+    max-width: 700px; /* mejor lectura */
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+.fade-section {  /* → estado inicial (invisible) */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-section.visible { /* → estado final (visible) */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* TÍTULOS */
+h2 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+
+/* LISTAS */
+ul {
+    margin: 10px 0 15px 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* LINKS */
+a {
+    color: #2a5298;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* FAQ (details) */
+details {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f1f4f9;
+    cursor: pointer;
+}
+
+summary {
+    font-weight: bold;
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+details p {
+    margin-top: 10px;
+}
+
+
+
+/* EFECTO HOVER SUAVE EN SECCIONES */
+section:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+}
+

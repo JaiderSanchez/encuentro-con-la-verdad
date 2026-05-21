@@ -1,0 +1,54 @@
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #025dfc;
+        flex-direction: column;
+        width: 200px;
+        text-align: center;
+        overflow: hidden;
+
+        /* estado oculto */
+        transform: translateX(100%);
+        opacity: 0;
+
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 600px) {
+    header {
+        min-height: auto; /* 🔥 clave */
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+
+}
