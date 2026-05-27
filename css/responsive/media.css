@@ -68,3 +68,19 @@
 @media (max-width: 480px) {
 
 }
+
+/* RESPONSIVE MITOS */
+
+@media (max-width: 768px) {
+    .mitos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mito-card {
+        padding: 25px 20px;
+    }
+
+    .icon-large {
+        font-size: 2.4rem;
+    }
+}
