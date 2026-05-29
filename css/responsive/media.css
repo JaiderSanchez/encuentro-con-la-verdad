@@ -112,3 +112,29 @@
         line-height: 1.8;
     }
 }
+
+
+/* =========================
+   RESPONSIVE TESTIMONIOS
+========================= */
+
+@media (max-width: 768px) {
+
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonio-card {
+        padding: 30px 22px;
+    }
+
+    .testimonio-extracto {
+        line-height: 1.8;
+    }
+
+    .btn-testimonios {
+        width: 100%;
+        justify-content: center;
+    }
+}
+

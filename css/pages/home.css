@@ -337,3 +337,82 @@ section:hover {
 .dudas-contenedor strong {
     color: #025dfc;
 }
+
+
+
+/* =========================
+   SECCIÓN: TESTIMONIOS PREVIEW
+========================= */
+
+.testimonios-preview {
+    background: #eef4ff;
+    padding: 70px 20px;
+    border-radius: 24px;
+    margin-top: 60px;
+}
+
+/* INTRODUCCIÓN */
+.testimonios-intro {
+    max-width: 850px;
+    margin: 20px auto 45px;
+    text-align: center;
+    line-height: 1.8;
+    color: #444;
+    font-size: 1.05rem;
+}
+
+/* GRID */
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* TARJETAS */
+.testimonio-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* HOVER */
+.testimonio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* ÍCONO DE COMILLAS */
+.quote-icon {
+    font-size: 2rem;
+    color: #025dfc;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* TEXTO TESTIMONIO */
+.testimonio-extracto {
+    line-height: 1.9;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* AUTOR */
+.testimonio-autor {
+    display: block;
+    font-weight: bold;
+    color: #07358a;
+}
+
+/* CTA */
+.testimonios-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+

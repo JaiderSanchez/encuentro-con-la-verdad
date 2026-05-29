@@ -28,3 +28,40 @@
 .btn-serie:hover {
     background-color: #b20710;
 }
+
+
+
+
+/* =========================
+   BOTÓN TESTIMONIOS
+========================= */
+
+.btn-testimonios {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #025dfc;
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;
+}
+
+/* HOVER */
+.btn-testimonios:hover {
+    background: #07358a;
+    transform: translateY(-2px);
+}
+
+/* ANIMACIÓN DE FLECHA */
+.btn-testimonios i {
+    transition: transform 0.2s ease;
+}
+
+.btn-testimonios:hover i {
+    transform: translateX(4px);
+}
