@@ -286,3 +286,54 @@ section:hover {
     line-height: 1.7;
     color: #444;
 }
+
+
+
+
+/* =========================
+   SECCIÓN: DUDAS
+========================= */
+
+.dudas-section {
+    display: flex;
+    justify-content: center;
+    padding: 70px 20px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.dudas-contenedor {
+    max-width: 850px;
+    background: #fdfdfd;
+    padding: 50px 40px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ÍCONO PRINCIPAL */
+.dudas-icono-principal {
+    font-size: 2.8rem;
+    color: #7a8aa0;
+    margin-bottom: 25px;
+}
+
+/* TÍTULO */
+.dudas-contenedor h2 {
+    margin-bottom: 25px;
+    color: #07358a;
+    line-height: 1.4;
+}
+
+/* PÁRRAFOS */
+.dudas-contenedor p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* RESALTADO */
+.dudas-contenedor strong {
+    color: #025dfc;
+}

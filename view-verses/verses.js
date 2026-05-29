@@ -25,6 +25,11 @@ const links = document.querySelectorAll(".nav-links a");
 
 // JS DE LOS MODALES
 const explicaciones = {
+    lucas157: {
+        titulo: "Lucas 15:7",
+        texto: "Este versículo enseña que los jóvenes pueden vivir correctamente si siguen la palabra de Dios. No habla de perfección, sino de dirección: tomar decisiones basadas en principios espirituales."
+    },
+
     salmo119: {
         titulo: "Salmos 119:9",
         texto: "Este versículo enseña que los jóvenes pueden vivir correctamente si siguen la palabra de Dios. No habla de perfección, sino de dirección: tomar decisiones basadas en principios espirituales."

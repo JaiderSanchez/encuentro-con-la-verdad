@@ -84,3 +84,31 @@
         font-size: 2.4rem;
     }
 }
+
+
+/* =========================
+   RESPONSIVE DUDAS
+========================= */
+
+@media (max-width: 768px) {
+
+    .dudas-contenedor {
+
+        padding: 35px 25px;
+
+        border-radius: 18px;
+    }
+
+    .dudas-icono-principal {
+        font-size: 2.3rem;
+    }
+
+    .dudas-contenedor h2 {
+        font-size: 1.5rem;
+    }
+
+    .dudas-contenedor p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
