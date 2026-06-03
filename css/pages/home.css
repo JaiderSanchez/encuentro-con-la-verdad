@@ -311,12 +311,7 @@ section:hover {
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* ÍCONO PRINCIPAL */
-.dudas-icono-principal {
-    font-size: 2.8rem;
-    color: #7a8aa0;
-    margin-bottom: 25px;
-}
+
 
 /* TÍTULO */
 .dudas-contenedor h2 {
@@ -384,14 +379,6 @@ section:hover {
 .testimonio-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-
-/* ÍCONO DE COMILLAS */
-.quote-icon {
-    font-size: 2rem;
-    color: #025dfc;
-    margin-bottom: 20px;
-    opacity: 0.8;
 }
 
 /* TEXTO TESTIMONIO */

@@ -1,50 +1,58 @@
 @media (max-width: 768px) {
 
     .menu-toggle {
-        display: block;
-        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .nav-links {
-        display: flex;
         flex-direction: column;
-
         position: absolute;
-        top: 70px;
-        left: 20px;
-
+        top: 80px; /* Separado un poco más del borde */
+        right: 5%; /* Lo alineamos a la derecha para que caiga debajo del botón hamburguesa */
+        
         background: #025dfc;
-        padding: 15px;
-        border-radius: 10px;
-
-        width: max-content;
-        min-width: 220px;
-
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        z-index: 1000;
-
-        /* ESTADO INICIAL OCULTO */
+        padding: 20px 15px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1); /* Borde sutil para separar */
+        
+        width: 250px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        
+        /* ESTADO INICIAL */
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-
-        transform: translateY(-15px) scale(0.98);
-
-        transition:
-            opacity 0.3s ease,
-            transform 0.3s ease,
-            visibility 0.3s ease;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 🔥 Transición con rebote sutil */
     }
 
     .nav-links.active {
+            /* ESTADO VISIBLE */
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
 
-        /* ESTADO VISIBLE */
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
+            transform: translateY(0);
+        }
 
-        transform: translateY(0) scale(1);
+    /* Mejora de áreas táctiles en móvil */
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 5px; /* Separación entre ítems */
     }
+
+    .nav-links a {
+        display: block; /* Para que ocupe todo el ancho del li */
+        padding: 12px 15px; /* Área táctil más grande */
+        text-align: left;
+        border-radius: 8px; /* Bordes más suaves dentro del menú */
+    }
+    
+    .nav-links a:hover {
+        transform: translateX(5px); /* En móvil, el hover desliza ligeramente a la derecha en lugar de hacia arriba */
+    }    
 }
 
 
