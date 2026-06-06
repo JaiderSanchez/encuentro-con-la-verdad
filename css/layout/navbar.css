@@ -3,11 +3,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Cambia a 'sticky; top: 0; z-index: 1000;' si quieres que siga al hacer scroll */
-    background: linear-gradient(135deg, #07358a, #025dfc); /* 135deg le da una caída de luz más dinámica */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #025dfc;
     padding: 15px 5%; /* Usar % en los laterales mejora la respiración en pantallas grandes */
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 🔥 Añade profundidad */
 }
 
 /* LINKS */
@@ -68,9 +69,8 @@
 }
 
 .logo {
-    color: #ffffff;
-    font-size: clamp(1.4rem, 2vw + 1rem, 1.8rem);
-    margin-bottom: 0; /* Asegura que no tenga margen inferior que lo desalinee en vertical */
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    width: clamp(95px, 15vw, 165px);
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
 }

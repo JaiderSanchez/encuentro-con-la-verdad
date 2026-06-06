@@ -1,7 +1,12 @@
 /* HEADER */
 header {
     min-height: 70vh;
-    background: linear-gradient(to right, #07358a, #025dfc);
+    /* background: linear-gradient(to right, #07358a, #025dfc); */
+    background: linear-gradient(
+    180deg,
+    #025dfc,
+    #d8e8ff
+    );
     color: var(--white);
     text-align: center;
     padding: 40px 20px;

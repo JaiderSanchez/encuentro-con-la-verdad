@@ -2,7 +2,8 @@
     --primary-color: #025dfc;
     --secondary-color: #07358a;
     --text-color: #333;
-    --background-color: #f4f7fb;;
+    /* --background-color: #f4f7fb; */
+    --background-color: #d8e8ff;
     --white: #fff;
     --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
     --radius-md: 12px;
