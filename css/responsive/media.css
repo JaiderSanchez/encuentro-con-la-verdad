@@ -52,7 +52,11 @@
     
     .nav-links a:hover {
         transform: translateX(5px); /* En móvil, el hover desliza ligeramente a la derecha en lugar de hacia arriba */
-    }    
+    }
+    
+    .logo img {
+        width: 160px;
+    }
 }
 
 
@@ -74,7 +78,9 @@
 
 
 @media (max-width: 480px) {
-
+    .logo img {
+        width: 130px;
+    }
 }
 
 /* RESPONSIVE MITOS */
