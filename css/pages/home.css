@@ -403,3 +403,76 @@ section:hover {
     margin-top: 45px;
 }
 
+
+/* ==========================
+   VERSÍCULO DESTACADO
+========================== */
+
+.versiculo-destacado {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.versiculo-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.versiculo-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.versiculo-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#categoria-versiculo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.versiculo-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+    display: flex;
+    flex-direction: column;
+}
+
+#versiculo-imagen {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.versiculo-content {
+    padding: 35px;
+}
+
+#versiculo-referencia {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+}
+
+#versiculo-texto {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+#versiculo-descripcion {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}

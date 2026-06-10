@@ -65,3 +65,23 @@
 .btn-testimonios:hover i {
     transform: translateX(4px);
 }
+
+
+.btn-versiculos {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background: #0077cc;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition: .3s;
+}
+
+.btn-versiculos:hover {
+    transform: translateY(-2px);
+}
