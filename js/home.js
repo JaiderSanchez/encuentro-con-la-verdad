@@ -56,3 +56,35 @@ document.addEventListener("click", (e) => {
         resetIcon();
     }
 });
+
+
+
+/* ==========================
+   VERSÍCULO DESTACADO
+========================== */
+document.addEventListener("DOMContentLoaded", () => {
+
+    const categorias = Object.keys(versesHome);
+
+    const categoriaAleatoria = categorias[Math.floor(Math.random() * categorias.length)];
+
+    const categoriaSeleccionada = versesHome[categoriaAleatoria];
+
+    const versiculos = categoriaSeleccionada.versiculos;
+
+    const versiculoAleatorio = versiculos[Math.floor(Math.random() * versiculos.length)];
+
+    document.getElementById("categoria-versiculo").textContent = categoriaSeleccionada.titulo;
+
+    document.getElementById("versiculo-imagen").src = versiculoAleatorio.imagen;
+
+    document.getElementById("versiculo-imagen").alt = versiculoAleatorio.referencia;
+
+    document.getElementById("versiculo-referencia").textContent = versiculoAleatorio.referencia;
+
+    document.getElementById("versiculo-texto").textContent = versiculoAleatorio.texto;
+
+    document.getElementById("versiculo-descripcion").textContent = categoriaSeleccionada.descripcion;
+
+    // Lo mejor es que, cuando agregue más categorías como: fe, esperanza, perdon, familia, oracionfe, esperanza, perdon, familia y oracion no tendrés que modificar el algoritmo. Automáticamente empezarán a participar en la selección aleatoria. Esa es precisamente la ventaja de la estructura escalable que se estableció en verses.js.
+});

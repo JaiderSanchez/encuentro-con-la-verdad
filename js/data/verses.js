@@ -101,3 +101,5 @@ const versesHome = {
         ]
     }
 };
+
+window.versesHome = versesHome;
