@@ -57,6 +57,26 @@
     .logo img {
         width: 160px;
     }
+
+    .versiculo-destacado {
+        padding: 60px 15px;
+    }
+
+    #versiculo-imagen {
+        height: 250px;
+    }
+
+    .versiculo-content {
+        padding: 25px;
+    }
+
+    #versiculo-referencia {
+        font-size: 1.4rem;
+    }
+
+    #versiculo-texto {
+        font-size: 1rem;
+    }
 }
 
 
