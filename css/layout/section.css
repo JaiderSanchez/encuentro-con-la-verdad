@@ -4,4 +4,5 @@ section {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    scroll-margin-top: 100px; /* Esta línea suele olvidarse y mejora muchísimo la experiencia. */
 }

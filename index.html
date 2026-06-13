@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/layout/footer.css">
     <link rel="stylesheet" href="css/layout/main.css">
     <link rel="stylesheet" href="css/layout/header.css">
+    <link rel="stylesheet" href="css/layout/section.css">
+    <link rel="stylesheet" href="css/layout/smart_nav.css">
 
         <!-- COMPONENTES -->
     <link rel="stylesheet" href="css/components/buttons.css">
@@ -42,8 +44,8 @@
 <body>
 
             
-        <!-- NAVBAR -->
-        <nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
             <!-- Botón hamburguesa -->
             <button class="menu-toggle" id="menu-toggle">
@@ -56,7 +58,20 @@
                 <li><a href="view-verses/verses.html">Versículos</a></li>
                 <li><a href="testimony-view/testimony.html">Testimonios</a></li>
             </ul>
-        </nav>
+    </nav>
+
+    <!-- NAVEGACIÓN INTELIGENTE -->
+    <aside class="smart-nav">
+        <a href="#esperanza" data-title="Esperanza"></a>
+        <a href="#aclaracion-fe" data-title="Fe"></a>
+        <a href="#mitos" data-title="Lo que no somos"></a>
+        <a href="#conoce" data-title="Conoce más"></a>
+        <a href="#preguntas-frecuentes" data-title="Preguntas frecuentes"></a>
+        <a href="#versiculos-destacados" data-title="Versículos destacados"></a>
+        <a href="#testimonios" data-title="Testimonios"></a>
+        <a href="#dudas" data-title="Dudas"></a>
+        <a href="#llamado-final" data-title="Llamado final"></a>
+    </aside>
 
     <!-- ENCABEZADO -->
     <header>
@@ -69,7 +84,7 @@
     <main>
 
         <!-- MENSAJE PRINCIPAL -->
-        <section class="fade-section esperanza-section">
+        <section id="esperanza" class="fade-section esperanza-section">
             <h2>Un mensaje de esperanza</h2>
 
             <div class="esperanza-contenido">
@@ -96,8 +111,9 @@
             </div>
         </section>
 
+
         <!-- ACLARACIÓN DE LA FE -->
-        <section class="fade-section">
+        <section id="aclaracion-fe" class="fade-section">
             <h2>¿Qué es realmente la Fe? <i class="fa-solid fa-lightbulb icon"></i></h2>
 
             <p>La Fe no se trata de:</p>
@@ -118,7 +134,8 @@
         </section>
 
 
-        <section class="fade-section mitos-section">
+        <!-- LO QUE NO SOMOS -->
+        <section id="mitos" class="fade-section mitos-section">
             <h2>Lo que no somos <i class="fa-solid fa-ban icon"></i></h2>
 
             <p class="intro-mitos">
@@ -157,9 +174,8 @@
         </section>
 
 
-
         <!-- RECURSO RECOMENDADO -->
-        <section class="fade-section conoce-section">
+        <section id="conoce" class="fade-section conoce-section">
             <h2>Conoce más <i class="fa-solid fa-film icon"></i></h2>
 
             <div class="conoce-contenido">
@@ -185,8 +201,9 @@
             </div>
         </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
-        <section class="fade-section">
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <section id="preguntas-frecuentes" class="fade-section">
             <h2>Preguntas frecuentes <i class="fa-solid fa-circle-question icon"></i></h2>
 
                 <details>
@@ -242,7 +259,7 @@
 
 
         <!-- VERSÍCULOS DESTACADOS -->
-        <section class="fade-section versiculo-destacado">
+        <section id="versiculos-destacados" class="fade-section versiculo-destacado">
             <div class="versiculo-container">
                 <div class="versiculo-header">
                     <h2>Versículo Destacado</h2>
@@ -268,8 +285,8 @@
         </section>
 
 
-    <!-- TESTIMONIOS (SNEAK PEEK) -->
-        <section class="fade-section testimonios-preview">
+        <!-- TESTIMONIOS (SNEAK PEEK) -->
+        <section id="testimonios" class="fade-section testimonios-preview">
             <h2>Historias reales de transformación <i class="fa-solid fa-comments icon"></i></h2>
             
             <p class="testimonios-intro">
@@ -304,40 +321,39 @@
             </div>
         </section>
 
+        <!-- DUDAS -->
+        <section id="dudas" class="fade-section dudas-section">
+            <div class="dudas-contenedor">
+                <div class="dudas-icono-principal">
+                    <i class="fa-solid fa-mug-hot"></i> 
+                </div>
+                    
+                <h2>¿Tienes dudas? Es completamente normal <i class="fa-solid fa-hand-holding-heart icon"></i></h2>
+                    
+                <p>
+                    Cuestionar, analizar y no estar de acuerdo en todo desde el principio no solo es válido, <strong>es parte del proceso</strong>. 
+                </p>
+                    
+                <p>
+                    No hay prisa por entender todo de inmediato ni se te pedirá que dejes tus preguntas en la puerta. Este es un lugar para explorar la verdad a tu propio ritmo, sin presiones.
+                </p>
+                </div>
+        </section>
 
-    <section class="fade-section dudas-section">
-        <div class="dudas-contenedor">
-            <div class="dudas-icono-principal">
-                <i class="fa-solid fa-mug-hot"></i> 
-            </div>
-                
-            <h2>¿Tienes dudas? Es completamente normal <i class="fa-solid fa-hand-holding-heart icon"></i></h2>
-                
+
+        <!-- LLAMADO FINAL -->
+        <section id="llamado-final" class="fade-section">
+            <h2>NOTA IMPORTANTE<i class="fa-solid fa-exclamation icon"></i></h2>
+
             <p>
-                Cuestionar, analizar y no estar de acuerdo en todo desde el principio no solo es válido, <strong>es parte del proceso</strong>. 
+                Esto no es una cita con una iglesia ni con el hombre, es con el Señor Jesús 
+                <i class="fa-solid fa-cross icon"></i>, nuestro salvador.
+                Él te ama 
+                <i class="fa-solid fa-heart icon"></i> 
+                y te está esperando con los brazos abiertos
+                <i class="fa-solid fa-hands-open icon"></i>.
             </p>
-                
-            <p>
-                No hay prisa por entender todo de inmediato ni se te pedirá que dejes tus preguntas en la puerta. Este es un lugar para explorar la verdad a tu propio ritmo, sin presiones.
-            </p>
-            </div>
-    </section>
-
-
-    <!-- LLAMADO FINAL -->
-    <section class="fade-section">
-        <h2>NOTA IMPORTANTE<i class="fa-solid fa-exclamation icon"></i></h2>
-
-        <p>
-            Esto no es una cita con una iglesia ni con el hombre, es con el Señor Jesús 
-            <i class="fa-solid fa-cross icon"></i>, nuestro salvador.
-            Él te ama 
-            <i class="fa-solid fa-heart icon"></i> 
-            y te está esperando con los brazos abiertos
-            <i class="fa-solid fa-hands-open icon"></i>.
-        </p>
-    </section>
-
+        </section>
 
     </main>
 
