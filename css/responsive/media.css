@@ -82,6 +82,15 @@
     /* .smart-nav{
         display:none;
     } */
+
+    .whatsapp-float{
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-float i{
+        font-size: 3rem;
+    }
 }
 
 
