@@ -69,12 +69,52 @@
 
 
 <main>
+    <!-- HERO SECTION DE LA PÁGINA -->
+    <section class="verses-hero fade-section">
+        <div class="hero-content">
+            <h1>Versículos que transforman <i class="fa-solid fa-book-bible icon"></i></h1>
+            <p>Encuentra dirección, paz y edificación para cada momento de tu vida.</p>
+        </div>
+    </section>
 
-    <!-- VERSÍCULOS BÍBLICOS -->
-    <section class="fade-section verses-page-section">
-        <h1>Versículos que transforman <i class="fa-solid fa-book-bible icon"></i>
-        </h1>
-        <div id="contenedor-versiculos"></div>
+    <!-- BARRA DE FILTROS (CATEGORÍAS) -->
+    <section class="verses-filters">
+        <div class="filter-container">
+            <!-- El botón 'active' muestra la categoría seleccionada por defecto -->
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="amor">Amor</button>
+            <button class="filter-btn" data-filter="paz">Paz y Tranquilidad</button>
+            <button class="filter-btn" data-filter="verdad">Verdad</button>
+            <button class="filter-btn" data-filter="felicidad">Felicidad</button>
+            <button class="filter-btn" data-filter="pareja">Amor de Pareja</button>
+            <button class="filter-btn" data-filter="edificacion">Edificación</button>
+            <button class="filter-btn" data-filter="direccion">Dirección</button>
+        </div>
+    </section>
+
+    <!-- CONTENEDOR DE VERSÍCULOS (GRID) -->
+    <section class="verses-grid-section fade-section">
+        <!-- Aquí es donde tu JavaScript inyectará las tarjetas -->
+        <div id="contenedor-versiculos" class="verses-grid">
+            
+            <!-- EJEMPLO DE CÓMO DEBERÍA VERSE UNA TARJETA GENERADA POR JS -->
+            <!-- 
+            <article class="versiculo-card" data-category="amor">
+                <div class="card-header">
+                    <span class="category-badge">Amor</span>
+                    <h3 class="reference">1 Corintios 13:4-5</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text">"El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso..."</p>
+                </div>
+                <div class="card-footer">
+                    <span class="version">NVI</span>
+                    <button class="btn-icon" aria-label="Compartir"><i class="fa-solid fa-share-nodes"></i></button>
+                </div>
+            </article> 
+            -->
+
+        </div>
     </section>
 </main>
 

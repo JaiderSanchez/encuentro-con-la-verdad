@@ -53,9 +53,21 @@
     /* Hero: Ajustes Móviles */
     .hero {
         min-height: auto;
-        padding: 3rem 5%;
+        padding: 4rem 5%;
     }
 
+    .hero-content {
+        gap: 2.5rem;
+    }
+
+    .versiculos {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+
+    .versiculo-img {
+        height: 300px;
+    }
 
     /* Mejora de áreas táctiles en móvil */
     .nav-links li {
@@ -88,7 +100,7 @@
         font-size: 1rem;
     }
 
-    
+
     .whatsapp-float{
         right: 15px;
         bottom: 15px;
@@ -96,6 +108,18 @@
 
     .whatsapp-float i{
         font-size: 3rem;
+    }
+
+    .mitos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mito-card {
+        padding: 25px 20px;
+    }
+
+    .icon-large {
+        font-size: 2.4rem;
     }
 }
 
@@ -121,22 +145,40 @@
     .logo img {
         width: 130px;
     }
-}
 
-/* RESPONSIVE MITOS */
-
-@media (max-width: 768px) {
-    .mitos-grid {
-        grid-template-columns: 1fr;
+    hero {
+        padding: 3rem 1rem;
     }
 
-    .mito-card {
-        padding: 25px 20px;
+    .hero-content {
+        gap: 2rem;
     }
 
-    .icon-large {
-        font-size: 2.4rem;
+    .hero h1 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
     }
+
+    .versiculos {
+        gap: 1.5rem;
+    }
+
+    .versiculo-card {
+        border-radius: 14px;
+    }
+
+    .versiculo-img {
+        height: 220px;
+    }
+
+    .versiculo-content {
+        padding: 1.4rem;
+    }
+
+    .versiculo-card blockquote {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
 }
 
 
