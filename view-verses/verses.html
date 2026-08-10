@@ -71,98 +71,10 @@
 <main>
 
     <!-- VERSÍCULOS BÍBLICOS -->
-    <section class="fade-section">
-        <h1>Versículos que transforman <i class="fa-solid fa-book-bible icon"></i></h1>
-
-        <!-- VERSÍCULO 1 -->
-        <article class="versiculo">
-            <h3>Salmos 119:9 <i class="fa-solid fa-child icon"></i></h3>
-
-            <p class="version">
-                <strong>RVR1960:</strong><br>
-                ¿Con qué limpiará el joven su camino? Con guardar tu palabra 
-                <i class="fa-solid fa-sparkles icon"></i>.
-            </p>
-
-            <p class="version">
-                <strong>TLA:</strong><br>
-                Solo obedeciendo tu palabra puede el joven corregir su vida 
-                <i class="fa-solid fa-check icon"></i>.
-            </p>
-
-            <button class="btn-explicacion" onclick="abrirModal('salmo119')">
-                📖 Explicación
-            </button>
-        </article>
-
-        <!-- VERSÍCULO 2 -->
-        <article class="versiculo">
-            <h3>Juan 3:16 <i class="fa-solid fa-heart icon"></i></h3>
-
-            <p class="version">
-                <strong>RVR1960:</strong><br>
-                Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito,
-                para que todo aquel que en él cree, no se pierda, mas tenga vida eterna 
-                <i class="fa-solid fa-infinity icon"></i>.
-            </p>
-
-            <p class="version">
-                <strong>TLA:</strong><br>
-                Dios amó tanto al mundo que dio a su único Hijo, para que todo el que crea en él
-                tenga vida eterna y no muera 
-                <i class="fa-solid fa-dove icon"></i>.
-            </p>
-
-            
-            <button class="btn-explicacion" onclick="abrirModal('juan316')">
-                📖 Explicación
-            </button>
-        </article>
-
-        <!-- VERSÍCULO 3 -->
-        <article class="versiculo">
-            <h3>Jeremías 29:11 <i class="fa-solid fa-seedling icon"></i></h3>
-
-            <p class="version">
-                <strong>RVR1960:</strong><br>
-                Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová,
-                pensamientos de paz, y no de mal, para daros el fin que esperáis 
-                <i class="fa-solid fa-peace icon"></i>.
-            </p>
-
-            <p class="version">
-                <strong>TLA:</strong><br>
-                Yo sé muy bien los planes que tengo para ustedes: planes de bienestar y no de desastre,
-                a fin de darles un futuro lleno de esperanza 
-                <i class="fa-solid fa-star icon"></i>.
-            </p>
-
-            <button class="btn-explicacion" onclick="abrirModal('jeremias2911')">
-                📖 Explicación
-            </button>
-        </article>
-
-        <!-- VERSÍCULO 4 -->
-        <article class="versiculo">
-            <h3>Filipenses 4:13 <i class="fa-solid fa-bolt icon"></i></h3>
-
-            <p class="version">
-                <strong>RVR1960:</strong><br>
-                Todo lo puedo en aquel que me fortalece 
-                <i class="fa-solid fa-dumbbell icon"></i>.
-            </p>
-
-            <p class="version">
-                <strong>TLA:</strong><br>
-                Cristo me da fuerzas para enfrentar cualquier situación 
-                <i class="fa-solid fa-fire icon"></i>.
-            </p>
-
-            <button class="btn-explicacion" onclick="abrirModal('filipenses413')">
-                📖 Explicación
-            </button>
-        </article>
-
+    <section class="fade-section verses-page-section">
+        <h1>Versículos que transforman <i class="fa-solid fa-book-bible icon"></i>
+        </h1>
+        <div id="contenedor-versiculos"></div>
     </section>
 </main>
 
@@ -182,6 +94,7 @@
     </div>
 </div>
     
+<script src="../js/data/verses.js" defer></script>
 <script src="../js/view-verses.js" defer></script>
 
 <a

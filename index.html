@@ -46,20 +46,34 @@
 
             
     <!-- NAVBAR -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navegación principal">
+        <!-- Logo primero (Izquierda en desktop y móvil) -->
+        <a href="#" class="logo-link">
+            <img class="logo" src="img/logo-encuentro-verdad-png.png" alt="Encuentro con la verdad - Inicio">
+        </a>
 
-            <!-- Botón hamburguesa -->
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+        <!-- Botón hamburguesa (Derecha en móvil) -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-            <img class="logo" src="img/logo-encuentro-verdad-png.png" alt="Paloma saliendo de una puerta con luz blanca">
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#">Grupos familiares (Células)</a></li>
-                <li><a href="view-verses/verses.html">Versículos</a></li>
-                <li><a href="testimony-view/testimony.html">Testimonios</a></li>
-            </ul>
+        <!-- Enlaces de navegación -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Grupos familiares (Células)</a></li>
+            <li><a href="view-verses/verses.html">Versículos</a></li>
+            <li><a href="testimony-view/testimony.html">Testimonios</a></li>
+            <li><a href="songs-view/songs.html">Canciones</a></li>
+        </ul>
     </nav>
+
+    <!-- HEADER / HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Encuentro con la verdad</h1>
+            <img src="img/portada.png" class="viene-pronto" alt="El regreso del Señor Jesús">
+        </div>
+    </header>
+
 
     <!-- NAVEGACIÓN INTELIGENTE -->
     <aside class="smart-nav">
@@ -74,11 +88,6 @@
         <a href="#llamado-final" data-title="Llamado final"></a>
     </aside>
 
-    <!-- ENCABEZADO -->
-    <header>
-        <h1>Encuentro con la verdad</h1>
-        <img src="img/portada.png" class="viene-pronto" alt="Imagen sobre la el regreso del Señor Jesús.">
-    </header>
 
 
     <!-- CONTENIDO PRINCIPAL -->

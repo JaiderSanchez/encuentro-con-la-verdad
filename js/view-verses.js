@@ -23,48 +23,83 @@ const nav = document.getElementById("nav-links");
 const icon = toggle.querySelector("i");
 const links = document.querySelectorAll(".nav-links a");
 
-// JS DE LOS MODALES
-const explicaciones = {
-    lucas157: {
-        titulo: "Lucas 15:7",
-        texto: "Este versículo enseña que los jóvenes pueden vivir correctamente si siguen la palabra de Dios. No habla de perfección, sino de dirección: tomar decisiones basadas en principios espirituales."
-    },
+const contenedorVersiculos = document.getElementById("contenedor-versiculos");
 
-    salmo119: {
-        titulo: "Salmos 119:9",
-        texto: "Este versículo enseña que los jóvenes pueden vivir correctamente si siguen la palabra de Dios. No habla de perfección, sino de dirección: tomar decisiones basadas en principios espirituales."
-    },
+function renderizarVersiculos() {
+    if (!contenedorVersiculos || !window.versesHome) return;
 
-    juan316: {
-        titulo: "Juan 3:16",
-        texto: "Este versículo resume el mensaje central del evangelio: el amor de Dios. No es un amor condicionado, sino un amor que da, que busca salvar y ofrecer vida eterna a quienes creen."
-    },
+    contenedorVersiculos.innerHTML = "";
 
-    jeremias2911: {
-        titulo: "Jeremías 29:11",
-        texto: "Dios declara que tiene planes de bienestar. Aunque las circunstancias sean difíciles, este versículo recuerda que hay propósito, dirección y esperanza en el futuro."
-    },
+    Object.values(window.versesHome).forEach(categoria => {
+        categoria.versiculos.forEach(versiculo => {
+            const article = document.createElement("article");
+            article.classList.add("versiculo");
 
-    filipenses413: {
-        titulo: "Filipenses 4:13",
-        texto: "Este versículo no significa que todo será fácil, sino que Dios da la fortaleza necesaria para enfrentar cualquier situación, ya sea buena o difícil."
-    }
-};
+            article.innerHTML = `
+                <h3>${versiculo.referencia}</h3>
+
+                <img 
+                    src="../${versiculo.imagen}" 
+                    alt="${versiculo.referencia}" 
+                    class="versiculo-imagen"
+                >
+
+                <p class="version">
+                    ${versiculo.texto}
+                </p>
+
+                <button 
+                    class="btn-explicacion"
+                    data-id="${versiculo.id}">
+                    📖 Explicación
+                </button>
+            `;
+
+            contenedorVersiculos.appendChild(article);
+        });
+    });
+
+    agregarEventosModal();
+}
+
+
+function agregarEventosModal() {
+    const botones = document.querySelectorAll(".btn-explicacion");
+
+    botones.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const versiculoId = boton.dataset.id;
+            abrirModal(versiculoId);
+        });
+    });
+}
+
 
 function abrirModal(id) {
-    const data = explicaciones[id];
-    if (!data) return;
+    if (!window.versesHome) return;
 
-    const modal = document.getElementById('modal');
-    modal.style.display = 'flex';
+    let versiculoEncontrado = null;
+
+    Object.values(window.versesHome).forEach(categoria => {
+        categoria.versiculos.forEach(versiculo => {
+            if (versiculo.id === id) {
+                versiculoEncontrado = versiculo;
+            }
+        });
+    });
+
+    if (!versiculoEncontrado) return;
+
+    const modal = document.getElementById("modal");
+    modal.style.display = "flex";
     modal.setAttribute("aria-hidden", "false");
 
-    document.getElementById('modal-titulo').innerText = data.titulo;
-    document.getElementById('modal-texto').innerText = data.texto;
+    document.getElementById("modal-titulo").innerText = versiculoEncontrado.referencia;
+    document.getElementById("modal-texto").innerText = versiculoEncontrado.explicacion;
 
-    // Enfocar el botón de cerrar para accesibilidad
-    document.querySelector('.cerrar').focus();
+    document.querySelector(".cerrar").focus();
 }
+
 
 function cerrarModal() {
     const modal = document.getElementById('modal');
@@ -113,3 +148,8 @@ function resetIcon() {
     icon.classList.remove("fa-xmark");
     icon.classList.add("fa-bars");
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderizarVersiculos();
+});

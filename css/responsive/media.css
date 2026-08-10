@@ -1,41 +1,61 @@
 @media (max-width: 768px) {
 
     .menu-toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block; /* Mostramos el botón */
+    }
+
+    .navbar {
+        /* Necesario para posicionar el menú absoluto relativo a la barra, no a la página */
+        position: sticky; 
     }
 
     .nav-links {
+        /* Cambio a columna */
         flex-direction: column;
+        align-items: stretch; /* Estira los hijos para ocupar el ancho total */
+        
         position: absolute;
-        top: 80px; /* Separado un poco más del borde */
-        right: 5%; /* Lo alineamos a la derecha para que caiga debajo del botón hamburguesa */
+        top: 100%; /* Inicia exactamente donde termina el Navbar, sin importar su height */
+        left: 0;
+        right: 0;
         
-        background: #025dfc;
-        padding: 20px 15px;
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.1); /* Borde sutil para separar */
+        background: var(--primary-color);
+        padding: 1.5rem 5%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        gap: 0.5rem;
         
-        width: 250px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-        
-        /* ESTADO INICIAL */
+        /* Oculto inicialmente */
         opacity: 0;
         visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-20px);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 🔥 Transición con rebote sutil */
+        transform: translateY(-15px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links.active {
-            /* ESTADO VISIBLE */
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 
-            transform: translateY(0);
-        }
+    .nav-links a {
+        display: block;
+        text-align: center;
+        padding: 1rem; /* Área táctil (Touch Target) grande ideal para UX móvil */
+        border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+        transform: none; /* Quitamos el translateY en móvil para evitar saltos molestos */
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    
+    /* Hero: Ajustes Móviles */
+    .hero {
+        min-height: auto;
+        padding: 3rem 5%;
+    }
+
 
     /* Mejora de áreas táctiles en móvil */
     .nav-links li {
@@ -43,16 +63,6 @@
         margin-bottom: 5px; /* Separación entre ítems */
     }
 
-    .nav-links a {
-        display: block; /* Para que ocupe todo el ancho del li */
-        padding: 12px 15px; /* Área táctil más grande */
-        text-align: left;
-        border-radius: 8px; /* Bordes más suaves dentro del menú */
-    }
-    
-    .nav-links a:hover {
-        transform: translateX(5px); /* En móvil, el hover desliza ligeramente a la derecha en lugar de hacia arriba */
-    }
     
     .logo img {
         width: 160px;
@@ -78,11 +88,7 @@
         font-size: 1rem;
     }
 
-    /* SMART NAV */
-    /* .smart-nav{
-        display:none;
-    } */
-
+    
     .whatsapp-float{
         right: 15px;
         bottom: 15px;
