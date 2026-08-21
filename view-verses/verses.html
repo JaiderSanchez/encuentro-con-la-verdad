@@ -51,7 +51,7 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <!-- Botón hamburguesa -->
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
@@ -59,16 +59,17 @@
         </button>
 
         <img class="logo" src="../img/logo-encuentro-verdad-png.png" alt="Paloma saliendo de una puerta con luz blanca">
+        <!-- Enlaces de navegación -->
         <ul class="nav-links" id="nav-links">
             <li><a href="#">Grupos familiares (Células)</a></li>
-            <li><a href="../testimony-view/testimony.html">Testimonios</a></li>
-            <li><a href="contacto.html">Contáctanos</a></li>
-            <li><a href="../index.html" class="volver">← Volver</a></li>
+            <li><a href="testimony-view/testimony.html">Testimonios</a></li>
+            <li><a href="songs-view/songs.html">Canciones</a></li>
+            <li><a href="bible-reading/bible-reading.html">¿Cómo leer correctamente la Biblia?</a></li>
         </ul>
     </nav>
 
-
 <main>
+    
     <!-- HERO SECTION DE LA PÁGINA -->
     <section class="verses-hero fade-section">
         <div class="hero-content">
@@ -94,6 +95,7 @@
 
     <!-- CONTENEDOR DE VERSÍCULOS (GRID) -->
     <section class="verses-grid-section fade-section">
+
         <!-- Aquí es donde tu JavaScript inyectará las tarjetas -->
         <div id="contenedor-versiculos" class="verses-grid">
             
@@ -128,8 +130,12 @@
 <!-- MODALES -->
 <div id="modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-contenido">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <span class="cerrar" onclick="cerrarModal()" aria-label="Cerrar modal" tabindex="0">&times;</span>
         <h3 id="modal-titulo"></h3>
+        
+        <!-- Agregamos esta etiqueta para la imagen -->
+        <img id="modal-imagen" src="" alt="Imagen de explicación" style="max-width: 100%; border-radius: 8px; margin: 15px 0; display: none;">
+        
         <p id="modal-texto"></p>
     </div>
 </div>
@@ -138,7 +144,7 @@
 <script src="../js/view-verses.js" defer></script>
 
 <a
-    href="https://wa.me/573228758896?text=Quiero%20recibir%20al%20Se%C3%B1or%20Jes%C3%BAs%20en%20mi%20coraz%C3%B3n%20y%20en%20mi%20vida.%20Quiero%20abrirle%20las%20puertas%20de%20mi%20vida."
+    href="https://wa.me/573107542262?text=Quiero%20recibir%20al%20Se%C3%B1or%20Jes%C3%BAs%20en%20mi%20coraz%C3%B3n%20y%20en%20mi%20vida."
     class="whatsapp-float"
     target="_blank"
     aria-label="Contactar por WhatsApp">

@@ -1,32 +1,125 @@
-/* LISTAS */
-ul {
-    margin: 10px 0 15px 20px;
+/* =========================================
+   1. HERO Y FILTROS (Flexbox)
+========================================= */
+.verses-hero, 
+.verses-filters {
+    background: transparent;
+    box-shadow: none;
+    margin: 10px 0;
+    padding: 10px 20px;
 }
 
-li {
-    margin-bottom: 8px;
+.verses-hero {
+    text-align: center;
 }
 
-p {
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Mantenemos el estilo outline, pero usando las variables globales */
+.filter-btn {
+    padding: 8px 18px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-default);
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   2. GRID DE VERSÍCULOS (CSS Grid)
+========================================= */
+.verses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* =========================================
+   3. TARJETAS (Usando las variables globales y un poco de flexbox)
+========================================= */
+.versiculo-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 25px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-soft);
+    
+    display: flex;
+    flex-direction: column;
+    
+    transition: transform var(--transition-default), box-shadow var(--transition-default);
+}
+
+.versiculo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
 }
 
-
-/* VERSÍCULOS */
-.versiculo {
-    border-left: 4px solid #2a5298;
-    padding-left: 15px;
-    margin-bottom: 25px;
+.category-badge {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background: var(--background-color);
+    color: var(--secondary-color);
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.versiculo h3 {
-    margin-bottom: 10px;
-    color: #1e3c72;
+.reference {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin: 0;
 }
 
-.version {
-    margin-bottom: 10px;
+.card-body {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-body .text {
+    font-style: italic;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #edf2f7;
+    padding-top: 15px;
+    margin-top: auto;
+}
+
+.card-footer .version {
+    font-size: 0.85rem;
+    color: #718096;
     background: #f1f4f9;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin: 0;
 }

@@ -57,7 +57,7 @@
     }
 
     .hero-content {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .versiculos {
@@ -89,7 +89,7 @@
     }
 
     .versiculo-content {
-        padding: 25px;
+        padding: 1.4rem;
     }
 
     #versiculo-referencia {
@@ -234,3 +234,11 @@
     }
 }
 
+/* ==========================================
+   AJUSTES DESKTOP (Pantallas grandes)
+========================================== */
+@media (min-width: 769px) {
+    .navbar {
+        position: relative; /* Quita el comportamiento fijo (sticky) en Desktop */
+    }
+}
