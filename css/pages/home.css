@@ -36,9 +36,24 @@ img {
 section {
     background: white;
     margin: 20px 0;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid transparent; /* Prepara el borde para el hover */
+    
+    /* Transición suave para todos los cambios */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+}
+
+/* EFECTO HOVER PROFESIONAL (Solo aplica en computadoras con mouse) */
+@media (hover: hover) and (pointer: fine) {
+    section:hover {
+        transform: translateY(-5px); /* Levantamiento sutil */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Sombra más amplia y difuminada */
+        border-color: rgba(37, 95, 252, 0.15); /* Borde sutil del color primario */
+    }
 }
 
 
@@ -194,28 +209,98 @@ a:hover {
 /* FAQ (details) */
 details {
     margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    background: #f1f4f9;
+    padding: 15px 20px;
+    border-radius: 14px;
+    background: #ffffff; /* Fondo blanco limpio */
+    border: 1px solid #e2e8f0; /* Borde muy sutil */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Evita que el contenido desborde en la animación */
 }
 
-summary {
-    font-weight: bold;
-    color: #1e3c72;
-    margin-bottom: 8px;
+/* Efecto hover sobre la tarjeta cerrada */
+details:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(37, 95, 252, 0.08); /* Destello suave con tu color azul */
 }
+
+/* Estado abierto de la tarjeta */
+details[open] {
+    background: #f8fafc; /* Gris extra claro para diferenciarlo */
+    border-color: rgba(37, 95, 252, 0.3); /* Borde activo azul */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   SUMMARY (El título de la pregunta)
+========================================= */
+summary {
+    font-weight: 600;
+    color: #1e3c72;
+    font-size: 1.05rem;
+    list-style: none; /* Oculta la flecha nativa estándar */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px; /* Espacio exacto entre el texto y el icono */
+    position: relative;
+    outline: none;
+}
+
+/* Oculta la flecha nativa en navegadores basados en WebKit (Chrome/Safari) */
+summary::-webkit-details-marker {
+    display: none; 
+}
+
+
+/* Nuevo Ícono animado usando FontAwesome */
+summary::after {
+    content: '\f078'; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--primary-color, #025dfc);
+    font-size: 1rem;
+    margin-left: auto; /* Empuja mágicamente la flecha hacia el extremo derecho */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+
+/* Rotar el ícono 180 grados cuando se abre */
+details[open] summary::after {
+    transform: rotate(-180deg);
+}
+
+
+/* =========================================
+   ANIMACIÓN DEL CONTENIDO INTERNO
+========================================= */
+details[open] summary ~ * {
+    animation: fadeInDown 0.4s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste rápido para las imágenes del FAQ */
+.faq-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
 
 details p {
     margin-top: 10px;
-}
-
-
-
-/* EFECTO HOVER SUAVE EN SECCIONES */
-section:hover {
-    transform: translateY(-3px);
-    transition: 0.3s ease;
 }
 
 
