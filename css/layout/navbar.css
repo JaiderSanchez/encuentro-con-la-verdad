@@ -1,5 +1,5 @@
 /* =========================================
-   NAVBAR (Flexbox Masterclass)
+   NAVBAR (Flexbox Masterclass - UI/UX Mejorado)
 ========================================= */
 .navbar {
     display: flex;
@@ -10,48 +10,53 @@
     top: 0;
     z-index: 1000;
     
-    background: var(--primary-color);
+    /* MEJORA UI (Glassmorphism): Un efecto de cristal translúcido muy moderno */
+    background: rgba(37, 99, 235, 0.95); /* Reemplaza con tu rgba de --primary-color */
+    backdrop-filter: blur(10px); /* Desenfoque del contenido de atrás al hacer scroll */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    
     padding: 1rem 5%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra un poco más suave y profunda */
 }
 
 /* LINKS */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem; /* MEJORA UX: Aumenté el gap de 0.5rem a 1.5rem para que los enlaces "respiren" y sean más fáciles de clickear */
     list-style: none;
 }
 
 .nav-links a {
-    color: var(--text-light);
+    color: var(--text-light, #ffffff);
     text-decoration: none;
     padding: 0.6rem 1.2rem;
     font-weight: 500;
-    border-radius: 20px;
-    transition: background var(--transition-speed) ease, transform 0.2s ease;
+    border-radius: 20px; /* Estilo píldora, excelente */
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 /* HOVER Y MICRO-INTERACCIONES */
-.nav-links a:hover,
-.nav-links a:focus-visible { /* Accesibilidad */
+.nav-links a:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
 }
 
-
-.navbar a:focus-visible {
-    outline: 2px solid #60a5fa; /* Un azul claro/celeste es menos agresivo que el amarillo pero igual de visible */
+.nav-links a:focus-visible, 
+.navbar a:focus-visible { 
+    /* MEJORA ACCESIBILIDAD: Unificado y pulido */
+    outline: 2px solid #60a5fa; 
     outline-offset: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
 }
 
 /* BOTÓN HAMBURGUESA */
 .menu-toggle {
-    display: none; /* Oculto en desktop */
+    display: none; 
     background: transparent;
     border: none;
-    color: var(--text-light);
+    color: var(--text-light, #ffffff);
     font-size: 1.8rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -62,15 +67,24 @@
     transform: scale(0.9);
 }
 
-.menu-toggle:active i {
-    transform: scale(0.85);
+/* =========================================
+   LOGO (El arreglo del tamaño y fondo blanco)
+========================================= */
+.logo {
+    height: 55px;         /* Controlamos la altura estrictamente */
+    width: 55px;          /* Le damos el mismo ancho para que sea un cuadrado perfecto */
+    object-fit: cover;    /* Asegura que la imagen llene el espacio */
+    display: block;
+    
+    /* TRUCO CSS PARA EL FONDO BLANCO */
+    border-radius: 50%;   /* Convierte el cuadrado blanco en un círculo perfecto */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Le agregamos un borde blanco sutil */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);   /* Sombrita para que resalte como medalla */
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* LOGO */
-.logo {
-    /* Modelo de caja responsivo puro */
-    width: clamp(120px, 15vw, 160px);
-    height: auto;
-    object-fit: contain;
-    display: block;
+.logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
