@@ -315,6 +315,26 @@
         width: 100%;
         justify-content: center;
     }
+
+    .family-groups-page { padding: 45px 20px; }
+
+    .family-groups-header { margin-bottom: 35px; }
+
+    .family-groups-header h1 { font-size: 2rem; }
+
+    .family-groups-header p { font-size: 1rem; }
+
+    .family-welcome { padding: 28px 22px; margin-bottom: 35px; }
+
+    .family-info { margin-bottom: 35px; }
+
+    .family-info > h2, .locations > h2 { font-size: 1.6rem; }
+
+    .info-grid { grid-template-columns: 1fr; gap: 18px; }
+
+    .info-card { width: 100%; }
+
+    .location-card { padding: 24px; }
 }
 
 
@@ -331,6 +351,8 @@
     main {
         padding: 10px;
     }
+
+    .family-groups-page { padding: 35px 15px; } /* HEADER */ .section-icon { width: 60px; height: 60px; font-size: 25px; } .family-groups-header h1 { font-size: 1.75rem; line-height: 1.3; } .family-groups-header p { font-size: 0.98rem; } /* MENSAJE */ .family-welcome { padding: 25px 18px; border-radius: 14px; } .family-welcome h2 { font-size: 1.5rem; } .family-welcome p { font-size: 0.98rem; } .welcome-highlight { font-size: 1rem; } /* TÍTULOS DE SECCIÓN */ .family-info > h2, .locations > h2 { font-size: 1.45rem; line-height: 1.4; } /* CARDS DE INFORMACIÓN */ .info-grid { display: grid; grid-template-columns: 1fr; width: 100%; } .info-card { width: 100%; padding: 22px 18px; gap: 15px; } .info-icon { min-width: 48px; width: 48px; height: 48px; font-size: 19px; } .info-card h3 { font-size: 1.05rem; } .info-card p { font-size: 0.95rem; } /* UBICACIONES */ .location-card { padding: 22px 18px; gap: 15px; border-radius: 14px; } .location-icon { min-width: 48px; width: 48px; height: 48px; font-size: 19px; } .location-content h3 { font-size: 1.05rem; } .location-content p { font-size: 0.95rem; } /* BOTÓN GOOGLE MAPS */ .location-button { width: 100%; justify-content: center; text-align: center; padding: 11px 14px; font-size: 0.9rem; } /* MENSAJE FINAL */ .family-final { padding: 32px 18px; border-radius: 14px; } .family-final h2 { font-size: 1.5rem; } .family-final p { font-size: 0.95rem; } .back-home { width: 100%; justify-content: center; }
 }
 
 
@@ -364,6 +386,31 @@
     .versiculo-card blockquote {
         font-size: 1rem;
         line-height: 1.6;
+    }
+
+    .family-groups-page { padding: 30px 12px; } .family-groups-header h1 { font-size: 1.55rem; } .family-welcome { padding: 22px 15px; } .family-welcome h2 { font-size: 1.35rem; } .family-info > h2, .locations > h2 { font-size: 1.3rem; } /* En teléfonos pequeños mantenemos el icono a la izquierda y el contenido a la derecha, pero reducimos el espacio. */ .info-card, .location-card { gap: 12px; padding: 19px 14px; } .info-icon, .location-icon { min-width: 44px; width: 44px; height: 44px; font-size: 17px; } .info-card h3, .location-content h3 { font-size: 1rem; } .info-card p, .location-content p { font-size: 0.9rem; } .location-button { font-size: 0.85rem; }
+
+    .family-invitation {
+        flex-direction: column;
+
+        padding: 25px 18px;
+
+        text-align: center;
+
+        gap: 15px;
+    }
+
+    .family-invitation-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .family-invitation-content p {
+        font-size: 0.93rem;
+    }
+
+    .family-invitation-button {
+        justify-content: center;
+        width: 100%;
     }
 
 }

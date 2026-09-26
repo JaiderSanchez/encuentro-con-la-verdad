@@ -561,3 +561,119 @@ details p {
     line-height: 1.7;
     margin-bottom: 30px;
 }
+
+/* =========================================
+   INVITACIÓN AL GRUPO FAMILIAR
+========================================= */
+
+.family-invitation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    max-width: 850px;
+
+    margin: 35px auto 0;
+    padding: 25px 30px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+
+    text-align: left;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.family-invitation:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+
+/* ICONO */
+
+.family-invitation-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: var(--primary-color);
+    color: var(--text-light);
+
+    font-size: 27px;
+}
+
+
+/* CONTENIDO */
+
+.family-invitation-content {
+    flex: 1;
+}
+
+.family-invitation-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--primary-color);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.family-invitation-content h2 {
+    margin-bottom: 7px;
+
+    color: #2a5298;
+
+    font-size: 1.5rem;
+}
+
+.family-invitation-content p {
+    margin-bottom: 16px;
+
+    font-size: 0.98rem;
+}
+
+
+/* BOTÓN */
+
+.family-invitation-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 17px;
+
+    border-radius: 8px;
+
+    background: var(--primary-color);
+    color: var(--text-light);
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.family-invitation-button:hover {
+    background: var(--primary-hover);
+
+    text-decoration: none;
+
+    transform: translateY(-2px);
+}
