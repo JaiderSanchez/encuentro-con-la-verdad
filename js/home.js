@@ -1,4 +1,10 @@
 const sections = document.querySelectorAll('.fade-section');
+// CONSTANTES MENÚ HAMBURGUESA
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+const icon = toggle.querySelector("i");
+const links = document.querySelectorAll(".nav-links a");
+const smartNavLinks = document.querySelectorAll('.smart-nav a');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -10,6 +16,28 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.2
 });
 
+
+let tooltipTimeout;
+
+smartNavLinks.forEach(link => {
+
+    link.addEventListener('click', () => {
+        // Ocultar cualquier tooltip anterior
+        smartNavLinks.forEach(item => {
+            item.classList.remove('show-tooltip');
+        });
+        // Cancelar temporizador anterior
+        clearTimeout(tooltipTimeout);
+        // Mostrar tooltip actual
+        link.classList.add('show-tooltip');
+        // Ocultarlo después de 3 segundos
+        tooltipTimeout = setTimeout(() => {
+            link.classList.remove('show-tooltip');
+        }, 3000);
+    });
+});
+
+
 sections.forEach(section => {
     observer.observe(section);
 });
@@ -20,12 +48,6 @@ function resetIcon() {
     icon.classList.add("fa-bars");
 }
 
-
-// CONSTANTES MENÚ HAMBURGUESA
-const toggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav-links");
-const icon = toggle.querySelector("i");
-const links = document.querySelectorAll(".nav-links a");
 
 
 // Lógica Menú Hamburguesa
