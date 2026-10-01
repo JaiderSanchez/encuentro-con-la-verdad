@@ -1,44 +1,45 @@
-html, body {
-    font-family: "Ubuntu", sans-serif;
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;   /* fallback */
+    min-height: 100dvh;
+    font-family: "Ubuntu", system-ui, sans-serif;
     line-height: 1.6;
     background: var(--background-color);
     color: var(--text-color);
-
-    overflow-x: hidden !important;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    max-width: 100vw;
-    min-height: 100vh;  
+    overflow-x: clip;    /* parche temporal: busca el elemento que desborda y quítalo */
 }
 
 a {
     color: #2a5298;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
-a:hover {
+a:hover { text-decoration: underline; }
+
+/* Enlaces dentro de texto: no depender solo del color (WCAG 1.4.1) */
+main :where(p, li) a {
     text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
-
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2rem);
+    margin-bottom: 0.9375rem;
     color: #2a5298;
 }
 
+p { margin-bottom: 0.9375rem; }
 
-p {
-    margin-bottom: 15px;
-}
-
-/* LISTAS */
-ul {
-    margin: 10px 0 15px 20px;
-}
-
-li {
-    margin-bottom: 8px;
-}
+/* Listas de contenido (ya no afectan a la navegación) */
+main ul { margin: 0.625rem 0 0.9375rem 1.25rem; }
+main li { margin-bottom: 0.5rem; }

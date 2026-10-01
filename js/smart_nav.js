@@ -1,33 +1,30 @@
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.smart-nav a');
+(() => {
+    const nav = document.querySelector('.smart-nav');
+    if (!nav) return;
 
-const observer = new IntersectionObserver(
-    (entries) => {
+    // Solo secciones que realmente tienen enlace en la nav
+    const linkBySection = new Map();
+    nav.querySelectorAll('a[href^="#"]').forEach((link) => {
+        const section = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+        if (section) linkBySection.set(section, link);
+    });
 
-        entries.forEach(entry => {
+    let current = null;
+    const setActive = (link) => {
+        if (!link || link === current) return;
+        current?.removeAttribute('aria-current');
+        link.setAttribute('aria-current', 'location');
+        current = link;
+    };
 
-            if(entry.isIntersecting){
+    // Franja central del viewport: funciona con secciones de cualquier altura
+    const observer = new IntersectionObserver(
+        (entries) => {
+            const visible = entries.filter((e) => e.isIntersecting).at(-1);
+            if (visible) setActive(linkBySection.get(visible.target));
+        },
+        { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
 
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                });
-
-                const activeLink = document.querySelector(
-                    `.smart-nav a[href="#${entry.target.id}"]`
-                );
-
-                if(activeLink){
-                    activeLink.classList.add("active");
-                }
-            }
-        });
-
-    },
-    {
-        threshold: 0.4
-    }
-);
-
-sections.forEach(section => {
-    observer.observe(section);
-});
+    linkBySection.forEach((_, section) => observer.observe(section));
+})();

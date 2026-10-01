@@ -1,20 +1,21 @@
-.fade-section {  /* → estado inicial (invisible) */
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    will-change: opacity, transform;
-}
-
-.fade-section.visible { /* → estado final (visible) */
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-@media (max-width: 600px) {
-
+/* Solo se oculta si hay JS Y el usuario no pidió menos movimiento.
+   En cualquier otro caso el contenido simplemente se ve. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
     .fade-section {
-        padding: 20px;
+        transition:
+            opacity var(--reveal-duration) ease,
+            translate var(--reveal-duration) ease;
     }
 
+    .fade-section:not(.visible) {
+        opacity: 0;
+        translate: 0 var(--reveal-distance);
+    }
+}
+
+@media print {
+    .fade-section:not(.visible) {
+        opacity: 1;
+        translate: none;
+    }
 }

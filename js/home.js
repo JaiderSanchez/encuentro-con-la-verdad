@@ -6,16 +6,6 @@ const icon = toggle.querySelector("i");
 const links = document.querySelectorAll(".nav-links a");
 const smartNavLinks = document.querySelectorAll('.smart-nav a');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, {
-    threshold: 0.2
-});
-
 
 let tooltipTimeout;
 
@@ -106,5 +96,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("versiculo-descripcion").textContent = categoriaSeleccionada.descripcion;
 
-    // Lo mejor es que, cuando agregue más categorías como: fe, esperanza, perdon, familia, oracionfe, esperanza, perdon, familia y oracion no tendrés que modificar el algoritmo. Automáticamente empezarán a participar en la selección aleatoria. Esa es precisamente la ventaja de la estructura escalable que se estableció en verses.js.
+    // Lo mejor es que, cuando agregue más categorías como: fe, esperanza, perdon, familia, oracionfe, esperanza, perdon, familia y oracion no tendré que modificar el algoritmo. Automáticamente empezarán a participar en la selección aleatoria. Esa es precisamente la ventaja de la estructura escalable que se estableció en verses.js.
 });

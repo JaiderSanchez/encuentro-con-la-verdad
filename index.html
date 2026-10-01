@@ -3,7 +3,9 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
     <title>Encuentro con la verdad</title>
 
     <link rel="stylesheet" href="css/pages/home.css">
@@ -16,9 +18,9 @@
     <link rel="stylesheet" href="css/base/global.css">
 
         <!-- LAYOUT -->
+    <link rel="stylesheet" href="css/layout/main.css">     
     <link rel="stylesheet" href="css/layout/navbar.css">
     <link rel="stylesheet" href="css/layout/footer.css">
-    <link rel="stylesheet" href="css/layout/main.css">
     <link rel="stylesheet" href="css/layout/header.css">
     <link rel="stylesheet" href="css/layout/section.css">
     <link rel="stylesheet" href="css/layout/smart_nav.css">
@@ -67,6 +69,7 @@
         </ul>
     </nav>
 
+
     <!-- HEADER / HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
@@ -74,150 +77,54 @@
             <h1>Encuentro con la verdad</h1>
 
             <div class="versiculos">
-
-                 <!-- Juan 14:6 -->
+                <!-- Juan 8:32 -->
                 <article class="versiculo-card">
-                    <img
-                        src="img/juan-14-6.jpg"
-                        alt="Juan 8:32 - Y conoceréis la verdad, y la verdad os hará libres."
-                        class="versiculo-img"
-                    >
-
+                <!-- Ojo: el nombre del archivo parece cruzado (ver nota 1 de los cambios). Conservo tu ruta original. -->
+                    <img class="versiculo-img" src="img/juan-14-6.jpg" alt="" fetchpriority="high" decoding="async">
                     <div class="versiculo-content">
-                        <span class="versiculo-referencia">Juan 8:32</span>
-
-                        <blockquote>
-                            “Y conoceréis la verdad, y la verdad os hará libres.”
-                        </blockquote>
+                        <p class="versiculo-referencia">Juan 8:32</p>
+                        <blockquote>“Y conoceréis la verdad, y la verdad os hará libres.”</blockquote>
                     </div>
                 </article>
 
-                <!-- Juan 8:32 -->
+                <!-- Juan 14:6 -->
                 <article class="versiculo-card">
-                    <img
-                        src="img/Juan-8-32.avif"
-                        alt="Juan 14:6 - Jesús dijo: Yo soy el camino, y la verdad, y la vida."
-                        class="versiculo-img"
-                    >
-
+                    <img class="versiculo-img" src="img/Juan-8-32.avif" alt="" decoding="async">
                     <div class="versiculo-content">
-                        <span class="versiculo-referencia">Juan 14:6</span>
-
+                        <p class="versiculo-referencia">Juan 14:6</p>
                         <blockquote>
                             “Jesús le dijo: Yo soy el camino, y la verdad, y la vida;
                             nadie viene al Padre, sino por mí.”
                         </blockquote>
                     </div>
                 </article>
-
             </div>
 
             <!-- INVITACIÓN AL GRUPO FAMILIAR -->
-            <section class="family-invitation">
-
+            <section class="family-invitation" aria-labelledby="family-title">
                 <div class="family-invitation-icon">
-                    <i class="fa-solid fa-people-group"></i>
+                    <i class="fa-solid fa-people-group" aria-hidden="true"></i>
                 </div>
 
                 <div class="family-invitation-content">
-
-                    <span class="family-invitation-label">
-                        Un espacio para compartir
-                    </span>
-
-                    <h2>¡Ven a nuestro Grupo Familiar!</h2>
-
-                    <p>
-                        Un momento para descansar, compartir, orar y acercarnos
-                        juntos al Señor Jesús.
+                    <span class="family-invitation-label">Un espacio para compartir</span>
+                    <h2 id="family-title" class="family-invitation-title">¡Ven a nuestro Grupo Familiar!</h2>
+                    <p class="family-invitation-text">
+                        Un momento para descansar, compartir, orar y acercarnos juntos al Señor Jesús.
                     </p>
-
-                    <a
-                        href="ViewFamilyGroups.html"
-                        class="family-invitation-button"
-                    >
+                    <a href="/view-family-groups/family-groups.html" class="btn">
                         Conoce nuestro Grupo Familiar
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>
-
                 </div>
-
             </section>
         </div>
     </header>
 
 
 
-    <!-- NAVEGACIÓN INTELIGENTE -->
-    <aside class="smart-nav" aria-label="Navegación por secciones">
-
-        <!-- ESPERANZA -->
-        <a href="#esperanza" data-title="Esperanza" aria-label="Ir a Esperanza">
-            <i class="fa-solid fa-heart"></i>
-        </a>
-
-        <!-- FE -->
-        <a href="#aclaracion-fe" data-title="Fe" aria-label="Ir a Fe">
-            <i class="fa-solid fa-hands-praying"></i>
-        </a>
-
-        <!-- LO QUE NO SOMOS -->
-        <a href="#mitos" data-title="Lo que no somos" aria-label="Ir a Lo que no somos">
-            <i class="fa-solid fa-circle-info"></i>
-        </a>
-
-        <!-- CONOCE MÁS -->
-        <a href="#conoce" data-title="Conoce más" aria-label="Ir a Conoce más">
-            <i class="fa-solid fa-book-open"></i>
-        </a>
-
-        <!-- PREGUNTAS FRECUENTES -->
-        <a
-            href="#preguntas-frecuentes"
-            data-title="Preguntas frecuentes"
-            aria-label="Ir a Preguntas frecuentes"
-        >
-            <i class="fa-solid fa-circle-question"></i>
-        </a>
-
-        <!-- VERSÍCULOS DESTACADOS -->
-        <a
-            href="#versiculos-destacados"
-            data-title="Versículos destacados"
-            aria-label="Ir a Versículos destacados"
-        >
-            <i class="fa-solid fa-book-bible"></i>
-        </a>
-
-        <!-- TESTIMONIOS -->
-        <a
-            href="#testimonios"
-            data-title="Testimonios"
-            aria-label="Ir a Testimonios"
-        >
-            <i class="fa-solid fa-comment"></i>
-        </a>
-
-        <!-- DUDAS -->
-        <a href="#dudas" data-title="Dudas" aria-label="Ir a Dudas">
-            <i class="fa-solid fa-comments"></i>
-        </a>
-
-        <!-- LLAMADO FINAL -->
-        <a
-            href="#llamado-final"
-            data-title="Llamado final"
-            aria-label="Ir a Llamado final"
-        >
-            <i class="fa-solid fa-person-praying"></i>
-        </a>
-
-    </aside>
-
-
-
     <!-- CONTENIDO PRINCIPAL -->
-    <main>
+    <main id="contenido" tabindex="-1">
 
         <!-- MENSAJE PRINCIPAL -->
         <section id="esperanza" class="fade-section esperanza-section">
@@ -494,22 +401,35 @@
     </main>
 
     <!-- PIE DE PÁGINA -->
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 - Encuentro con la verdad</p>
     </footer>
 
+
+        <nav class="smart-nav" aria-label="Secciones de la página">
+            <ul class="smart-nav__list" role="list">
+                <li><a class="smart-nav__link" href="#esperanza"><i class="fa-solid fa-heart" aria-hidden="true"></i><span class="smart-nav__label">Esperanza</span></a></li>
+                <li><a class="smart-nav__link" href="#aclaracion-fe"><i class="fa-solid fa-hands-praying" aria-hidden="true"></i><span class="smart-nav__label">Fe</span></a></li>
+                <li><a class="smart-nav__link" href="#mitos"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span class="smart-nav__label">Lo que no somos</span></a></li>
+                <li><a class="smart-nav__link" href="#conoce"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span class="smart-nav__label">Conoce más</span></a></li>
+                <li><a class="smart-nav__link" href="#preguntas-frecuentes"><i class="fa-solid fa-circle-question" aria-hidden="true"></i><span class="smart-nav__label">Preguntas frecuentes</span></a></li>
+                <li><a class="smart-nav__link" href="#versiculos-destacados"><i class="fa-solid fa-book-bible" aria-hidden="true"></i><span class="smart-nav__label">Versículos destacados</span></a></li>
+                <li><a class="smart-nav__link" href="#testimonios"><i class="fa-solid fa-comment" aria-hidden="true"></i><span class="smart-nav__label">Testimonios</span></a></li>
+                <li><a class="smart-nav__link" href="#dudas"><i class="fa-solid fa-comments" aria-hidden="true"></i><span class="smart-nav__label">Dudas</span></a></li>
+                <li><a class="smart-nav__link" href="#llamado-final"><i class="fa-solid fa-person-praying" aria-hidden="true"></i><span class="smart-nav__label">Llamado final</span></a></li>
+            </ul>
+        </nav>
+
 <script src="./js/data/verses.js"></script>
 <script src="./js/home.js"></script>
+<script src="smart_nav.js" defer></script>
+<script src="/js/reveal.js" defer></script>
 
-<a
-    href="https://wa.me/573107542262?text=Quiero%20recibir%20al%20Se%C3%B1or%20Jes%C3%BAs%20en%20mi%20coraz%C3%B3n%20y%20en%20mi%20vida."
-    class="whatsapp-float"
-    target="_blank"
-    aria-label="Contactar por WhatsApp">
-
-    <i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
+<a class="whatsapp-float" href="https://wa.me/573107542262?text=Quiero%20recibir%20al%20Se%C3%B1or%20Jes%C3%BAs%20en%20mi%20coraz%C3%B3n%20y%20en%20mi%20vida." target="_blank" rel="noopener noreferrer"
+   aria-label="Escríbenos por WhatsApp (se abre en una pestaña nueva)">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a> 
+<!-- Explicación sobre: rel="noopener noreferrer" -> rel especifica la relación entre tu página y el recurso enlazado. "noopener": Evita que la página abierta mediante _blank pueda utilizar window.opener para manipular la página que originó el enlace. Es una medida de seguridad. "noreferrer": Indica al navegador que no envíe normalmente la información de referencia (Referer) a la página de destino. También tiene implicaciones de privacidad.
+ -->
 </body>
 </html>

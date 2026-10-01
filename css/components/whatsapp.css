@@ -1,40 +1,37 @@
-.whatsapp-float{
+.whatsapp-float {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 9999;
+    right: 1.25rem;
+    bottom: calc(1.25rem + var(--bottom-nav-offset, 0px));
+    z-index: var(--z-floating);
+    display: grid;
+    place-items: center;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform .3s ease;
+    transition: transform var(--transition-speed) ease;
 }
 
-.whatsapp-float i{
+.whatsapp-float i {
     font-size: 3.5rem;
-    color: #25D366;
+    color: #25d366;
 }
 
-.whatsapp-float:hover{
-    transform: scale(1.15);
+.whatsapp-float:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 50%;
 }
 
+@media (hover: hover) and (pointer: fine) {
+    .whatsapp-float:hover { transform: scale(1.15); }
+}
 
-/* Pequeña animación de atención */
-@keyframes pulseWhatsapp{
-    0%{
-        transform: scale(1);
-    }
-
-    50%{
-        transform: scale(1.3);
-    }
-
-    100%{
-        transform: scale(1);
+/* Pulso de atención: Solo si el usuario no pidió menos movimiento.
+   3 × 1.5s = 4.5s (< 5s, cumple WCAG 2.2.2). Usa `scale` para no pisar el `transform` del hover. */
+@media (prefers-reduced-motion: no-preference) {
+    .whatsapp-float {
+        animation: pulse-whatsapp 1.5s ease-in-out 3;
     }
 }
 
-.whatsapp-float{
-    animation: pulseWhatsapp 3s infinite;
+@keyframes pulse-whatsapp {
+    50% { scale: 1.2; }
 }

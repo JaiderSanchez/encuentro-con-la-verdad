@@ -1,5 +1,16 @@
 main {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 30px 20px;
+    width: min(100%, var(--content-width));   /* evita encogerse dentro del flex column */
+    margin-inline: auto;
+    padding: 1.875rem clamp(0.625rem, 2.5vw, 1.25rem);
+}
+main:focus-visible { outline: none; }          /* se enfoca solo por código */
+
+/* Tarjeta de sección (solo las de <main>) */
+main > section {
+    margin-block: 1.25rem;
+    padding: clamp(1.25rem, 1rem + 1.5vw, 1.5625rem);   /* 20px móvil → 25px */
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+    scroll-margin-top: var(--scroll-offset);
 }

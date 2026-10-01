@@ -1,7 +1,8 @@
-footer {
+.site-footer {
     text-align: center;
+    padding: 1.25rem 1.25rem calc(1.25rem + var(--bottom-nav-offset, 0px));
     padding: 20px;
     background: var(--primary-color);
-    color: white;
+    color: var(--text-light);
     margin-top: auto;
 }

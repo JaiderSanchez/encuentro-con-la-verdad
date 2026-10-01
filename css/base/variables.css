@@ -1,11 +1,30 @@
 :root {
     --primary-color: #025dfc;
-    --secondary-color: #07358a;
-    --text-color: #333;
-    /* --background-color: #f4f7fb; */
+    --primary-hover: #07358a;
+    --text-light: #ffffff;
+    --transition-speed: 0.3s;
+
+    /* Escala de capas */
+    --z-nav: 100;
+    --z-floating: 110;
+
     --background-color: #d8e8ff;
+    --text-color: #1f2937;
     --white: #fff;
     --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
     --radius-md: 12px;
     --transition-default: 0.3s ease;
+
+    /* TOKENS */
+    --surface: #fff;
+    --hero-end: #d8e8ff;
+    --radius-card: 0.75rem;
+    --shadow-card: 0 4px 12px rgb(0 0 0 / 0.08);
+    --content-width: 43.75rem;   /* 700px */
+    --scroll-offset: 6.25rem;    /* 100px: margen al saltar a un ancla */
+    --reveal-distance: 2.5rem;   /* 40px */
+    --reveal-duration: 0.8s;
+    --z-skip: 200;
+
+    --radius-lg: 1.125rem;   /* 18px */
 }
