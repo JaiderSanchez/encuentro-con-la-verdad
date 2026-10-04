@@ -27,4 +27,14 @@
     );
 
     linkBySection.forEach((_, section) => observer.observe(section));
+
+    let tooltipTimeout;
+    nav.addEventListener('click', (e) => {
+        const link = e.target.closest('.smart-nav__link');
+        if (!link) return;
+        nav.querySelector('.show-tooltip')?.classList.remove('show-tooltip');
+        clearTimeout(tooltipTimeout);
+        link.classList.add('show-tooltip');
+        tooltipTimeout = setTimeout(() => link.classList.remove('show-tooltip'), 3000);
+    });
 })();
