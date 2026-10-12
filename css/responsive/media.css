@@ -1,336 +1,209 @@
-@media (max-width: 768px) {
-    /* ==========================================
-       7. REGLA ANTIBALAS (Bloquea el desbordamiento lateral)
-    ========================================== */
-    /* 1. Obliga a que el padding se calcule hacia adentro, no hacia afuera */
-    *, *::before, *::after {
-        box-sizing: border-box !important;
-    }
+/* ==========================================================
+   media.css · ajustes responsive (desktop-first, por ahora)
 
-    /* 2. Ninguna sección, contenedor o tarjeta podrá ser más ancha que la pantalla */
-    section, 
-    main,
-    .esperanza-contenido,
-    .conoce-contenido,
-    .versiculo-container,
-    .versiculo-card,
-    .testimonio-card {
-        max-width: 100% !important;
-    }
+   Cargar DESPUÉS de los CSS de componentes (navbar, hero,
+   smart-nav, whatsapp…): las reglas ganan por orden, sin !important.
 
-    /* 3. Evita que un texto largo o un enlace rompa el diseño */
-    p, h2, h3, h4, blockquote, a {
-        overflow-wrap: break-word; /* Obliga al texto a bajar de línea si es muy largo */
-        max-width: 100%;
-    }
+   Breakpoints (las variables CSS no funcionan dentro de @media):
+     ≤ 48em   (768px)  tablet y móvil
+     ≤ 37.5em (600px)  móvil
+     ≤ 30em   (480px)  móvil pequeño
+     > 48em            escritorio
+
+   El mismo corte (48em) debe usarse en smart-nav.css, hero.css y menu.js.
+   La barra inferior de navegación (smart-nav) y el offset de WhatsApp
+   viven en smart-nav.css y whatsapp.css, no aquí.
+========================================================== */
 
 
+/* ==========================================================
+   ≤ 768px · TABLET Y MÓVIL
+========================================================== */
+@media (width <= 48em) {
 
+    /* ---------- Navbar y menú hamburguesa ---------- */
+    .menu-toggle { display: block; }
 
-    .menu-toggle {
-        display: block; /* Mostramos el botón */
-    }
-
-    .navbar {
-        /* Necesario para posicionar el menú absoluto relativo a la barra, no a la página */
-        position: sticky; 
-    }
-
+    /* .navbar ya es sticky desde navbar.css: sirve de referencia al menú absoluto */
     .nav-links {
-        /* Cambio a columna */
-        flex-direction: column;
-        align-items: stretch; /* Estira los hijos para ocupar el ancho total */
-        
         position: absolute;
-        top: 100%; /* Inicia exactamente donde termina el Navbar, sin importar su height */
-        left: 0;
-        right: 0;
-        
-        background: var(--primary-color);
+        inset: 100% 0 auto 0;                 /* justo debajo de la barra */
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8125rem;                       /* 0.5rem + los 5px del antiguo margin de los <li> */
         padding: 1.5rem 5%;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        gap: 0.5rem;
-        
-        /* Oculto inicialmente */
+        background: var(--primary-color);
+        box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
+
+        /* oculto inicialmente; visibility también lo saca del orden de tabulación */
         opacity: 0;
         visibility: hidden;
         transform: translateY(-15px);
-        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links.active {
         opacity: 1;
         visibility: visible;
-        transform: translateY(0);
+        transform: none;
     }
 
     .nav-links a {
         display: block;
+        padding: 1rem;                        /* área táctil grande */
+        border-radius: 0.5rem;
         text-align: center;
-        padding: 1rem; /* Área táctil (Touch Target) grande ideal para UX móvil */
-        border-radius: 8px;
     }
 
     .nav-links a:hover {
-        transform: none; /* Quitamos el translateY en móvil para evitar saltos molestos */
-        background: rgba(255, 255, 255, 0.1);
+        background: rgb(255 255 255 / 0.1);
+        transform: none;                      /* sin saltos en móvil */
     }
 
-    
-    /* Hero: Ajustes Móviles */
+    @media (prefers-reduced-motion: no-preference) {
+        .nav-links {
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    /* ⚠️ VERIFICAR: si `.logo` ya es la propia <img> (navbar.css), este selector
+       no coincide con nada y es código muerto: bórralo aquí y en ≤480px. */
+    .logo img { width: 160px; }
+
+
+    /* ---------- Hero ---------- */
     .hero {
-        /* Ocupa el 100% de la pantalla dinámica */
-        min-height: 100dvh !important; 
-        display: flex;
         flex-direction: column;
-        justify-content: center; /* Centra todo verticalmente en la pantalla */
-        
-        /* Aseguramos que el contenido no quede aplastado por el Navbar superior */
-        padding-top: 10px !important; 
-        padding-bottom: 40px !important;
+        min-height: 100vh;                    /* fallback */
+        min-height: 100svh;                   /* svh no "salta" al ocultarse la barra del navegador */
+        padding-block: 0.625rem 2.5rem;
     }
 
-    .hero-content {
-        display: flex;
-        width: 100%;
-        max-width: 100vw;
-        overflow: hidden; /* Contiene a las tarjetas para que el scroll horizontal solo ocurra dentro del carrusel */
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem; /* Separación armónica entre el título y el carrusel */
-    }
+    .hero-content { gap: 2rem; }
 
-    /* 1. CONTENEDORES: Configuración del carrusel horizontal */
+
+    /* ---------- Carruseles horizontales (scroll-snap) ---------- */
     .versiculos,
     .mitos-grid,
     .testimonios-grid {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap; /* Fuerza a que los elementos no bajen a la siguiente línea */
-        overflow-x: auto; /* Habilita el scroll horizontal */
-        scroll-snap-type: x mandatory; /* Activa el magnetismo estricto en el eje X */
+        flex-wrap: nowrap;
         gap: 1.5rem;
-        padding-bottom: 1rem; /* Espacio inferior para que la sombra de las tarjetas no se corte */
-        
-        /* Ocultar la barra de desplazamiento para mantener estética de App nativa */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE 10+ */
+        padding-bottom: 1rem;                 /* espacio para la sombra de las tarjetas */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;                /* Firefox y navegadores recientes */
     }
 
-    /* Ocultar barra en navegadores WebKit (Chrome, Safari, Edge) */
+    /* Safari < 18.2 y navegadores WebKit antiguos */
     .versiculos::-webkit-scrollbar,
     .mitos-grid::-webkit-scrollbar,
     .testimonios-grid::-webkit-scrollbar {
         display: none;
     }
 
-    /* 2. TARJETAS (Hijos): Dimensiones y alineación magnética */
-    .versiculo-card,
+    /* `.versiculos >` evita afectar a la tarjeta del versículo destacado */
+    .versiculos > .versiculo-card,
     .mito-card,
     .testimonio-card {
-        flex: 0 0 85%; /* Ocupa el 85% del ancho de la pantalla, permitiendo ver el borde de la siguiente tarjeta */
-        scroll-snap-align: center; /* Al soltar el dedo (swipe), la tarjeta se centra automáticamente en pantalla */
-        max-width: none; /* Sobrescribe el max-width: 650px que tenías en .versiculos */
-    }
-
-/* ==========================================
-       3. MENÚ INFERIOR (Tab Bar - Estilo App)
-    ========================================== */
-    .smart-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        top: auto; /* Anula cualquier posición superior que tenga en desktop */
-        right: auto; /* Anula la posición a la derecha */
-        transform: none; /* Anula centrados verticales previos (translateY) */
-        
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly; /* Distribuye los puntos equitativamente */
-        align-items: center;
-        padding: 15px 10px;
-        box-sizing: border-box !important; /* Crucial para que el padding lateral no rompa el 100% */
-        
-        /* Efecto Glassmorphism */
-        background: rgba(255, 255, 255, 0.4); /* Fondo blanco semitransparente */
-        backdrop-filter: blur(15px); /* Desenfoca el contenido que queda por debajo */
-        -webkit-backdrop-filter: blur(15px); /* Soporte para Safari/iOS */
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* Sombra suave hacia arriba */
-        z-index: 1000; /* Asegura que siempre esté por encima de todo */
-        
-        /* Permite scroll horizontal si en el futuro agrego muchos enlaces */
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    /* Ajuste para los enlaces/puntos dentro del menú inferior */
-    .smart-nav a {
-        margin: 0; /* Limpia márgenes verticales del diseño de escritorio */
-        flex: 0 0 auto;
-    }
-
-    /* Ocultar barra de scroll interna del menú si hay muchos elementos */
-    .smart-nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* ==========================================
-       4. PREVENCIÓN DE SUPERPOSICIONES
-    ========================================== */
-    /* Subimos el botón de WhatsApp para que no quede oculto detrás del Tab Bar */
-    .whatsapp-float {
-        bottom: 95px !important; 
-        z-index: 1001; 
-    }
-
-    /* Damos un margen inferior al cuerpo de la página para que 
-       el contenido final (como el footer) no quede tapado por el menú fijo */
-    body {
-        padding-bottom: 70px;
+        flex: 0 0 85%;                        /* deja ver el borde de la siguiente tarjeta */
+        max-width: none;
+        scroll-snap-align: center;
     }
 
 
-    /* ==========================================
-       6. CORRECCIÓN DE DESBORDAMIENTO (Apilamiento móvil)
-    ========================================== */
+    /* ---------- Secciones: contenido apilado ---------- */
     .esperanza-contenido,
     .conoce-contenido,
     .versiculo-container {
         display: flex;
-        flex-direction: column; /* Apila el texto arriba y la imagen abajo */
+        flex-direction: column;
         width: 100%;
         gap: 1.5rem;
     }
 
-    /* Ajuste de imágenes para que ocupen el 100% del contenedor sin salirse */
     .esperanza-img img,
     .conoce-img img,
     .fe-img img {
         width: 100%;
-        max-width: 100%;
         height: auto;
-        object-fit: cover;
-        border-radius: 12px; /* Toque suave estilo Nequi */
-    }
-
-    /* Aseguramos que ninguna sección general rompa el ancho */
-    section {
-        width: 100%;
-        box-sizing: border-box;
+        border-radius: 0.75rem;
     }
 
 
-    .versiculo-img {
-        height: 300px;
-    }
+    /* ---------- Versículo destacado ---------- */
+    .versiculo-destacado { padding: 3.75rem 0.9375rem; }
 
-    /* Mejora de áreas táctiles en móvil */
-    .nav-links li {
-        width: 100%;
-        margin-bottom: 5px; /* Separación entre ítems */
-    }
+    #versiculo-imagen { height: 18.75rem; }   /* 300px */
 
-    
-    .logo img {
-        width: 160px;
-    }
+    .versiculo-content { padding: 1.4rem; }   /* hero y versículo destacado */
 
-    .versiculo-destacado {
-        padding: 60px 15px;
-    }
+    #versiculo-referencia { font-size: 1.4rem; }
 
-    #versiculo-imagen {
-        height: 300px;
-    }
-
-    .versiculo-content {
-        padding: 1.4rem;
-    }
-
-    #versiculo-referencia {
-        font-size: 1.4rem;
-    }
-
-    #versiculo-texto {
-        font-size: 1rem;
-    }
+    #versiculo-texto { font-size: 1rem; }
 
 
-    .whatsapp-float{
-        right: 15px;
-        bottom: 15px;
-    }
+    /* ---------- WhatsApp ---------- */
+    /* `bottom` ya lo calcula whatsapp.css con --bottom-nav-offset */
+    .whatsapp-float { right: 0.9375rem; }
 
-    .whatsapp-float i{
-        font-size: 3rem;
-    }
+    .whatsapp-float i { font-size: 3rem; }
 
-    .mito-card {
-        padding: 25px 20px;
-    }
 
-    .icon-large {
-        font-size: 2.4rem;
-    }
+    /* ---------- Mitos, dudas y testimonios ---------- */
+    .mito-card { padding: 1.5625rem 1.25rem; }
 
-    /* =========================
-    RESPONSIVE DUDAS
-    ========================= */
+    .icon-large { font-size: 2.4rem; }
 
     .dudas-contenedor {
-
-        padding: 35px 25px;
-
-        border-radius: 18px;
+        padding: 2.1875rem 1.5625rem;
+        border-radius: 1.125rem;
     }
 
-    .dudas-icono-principal {
-        font-size: 2.3rem;
-    }
+    .dudas-icono-principal { font-size: 2.3rem; }
 
-    .dudas-contenedor h2 {
-        font-size: 1.5rem;
-    }
+    .dudas-contenedor h2 { font-size: 1.5rem; }
 
     .dudas-contenedor p {
         font-size: 1rem;
         line-height: 1.8;
     }
 
-    /* =========================
-        RESPONSIVE TESTIMONIOS
-    ========================= */
+    .testimonio-card { padding: 1.875rem 1.375rem; }
 
-    .testimonio-card {
-        padding: 30px 22px;
-    }
-
-    .testimonio-extracto {
-        line-height: 1.8;
-    }
+    .testimonio-extracto { line-height: 1.8; }
 
     .btn-testimonios {
         width: 100%;
         justify-content: center;
     }
 
+
+    /* ---------- Página de Grupos Familiares ----------
+       → mover a family-groups.css (aquí solo reformateado, valores sin cambiar) */
     .family-groups-page { padding: 45px 20px; }
 
     .family-groups-header { margin-bottom: 35px; }
-
     .family-groups-header h1 { font-size: 2rem; }
-
     .family-groups-header p { font-size: 1rem; }
 
-    .family-welcome { padding: 28px 22px; margin-bottom: 35px; }
+    .family-welcome {
+        padding: 28px 22px;
+        margin-bottom: 35px;
+    }
 
     .family-info { margin-bottom: 35px; }
 
-    .family-info > h2, .locations > h2 { font-size: 1.6rem; }
+    .family-info > h2,
+    .locations > h2 { font-size: 1.6rem; }
 
-    .info-grid { grid-template-columns: 1fr; gap: 18px; }
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
 
     .info-card { width: 100%; }
 
@@ -338,136 +211,186 @@
 }
 
 
-@media (max-width: 600px) {
+/* ==========================================================
+   ≤ 600px · MÓVIL
+========================================================== */
+@media (width <= 37.5em) {
+
+    /* Selectores genéricos: afectan a cualquier <header>. Acótalos con una clase
+       cuando puedas (al .hero nunca le ganan, su clase tiene más especificidad). */
     header {
-        min-height: auto; /* 🔥 clave */
+        min-height: auto;
         padding: 30px 15px;
     }
 
-    header h1 {
-        font-size: 1.8rem;
+    header h1 { font-size: 1.8rem; }
+
+    main { padding: 0.625rem; }
+
+
+    /* ---------- Página de Grupos Familiares (→ family-groups.css) ---------- */
+    .family-groups-page { padding: 35px 15px; }
+
+    .section-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
     }
 
-    main {
-        padding: 10px;
+    .family-groups-header h1 {
+        font-size: 1.75rem;
+        line-height: 1.3;
     }
-
-    .family-groups-page { padding: 35px 15px; } 
-    
-    /* HEADER */
-    .section-icon { width: 60px; height: 60px; font-size: 25px; }
-
-    .family-groups-header h1 { font-size: 1.75rem; line-height: 1.3; }
 
     .family-groups-header p { font-size: 0.98rem; }
 
-    /* MENSAJE */
-    .family-welcome { padding: 25px 18px; border-radius: 14px; }
-
-    .family-welcome h2 { font-size: 1.5rem; }
-
-    .family-welcome p { font-size: 0.98rem; }
-
-    .welcome-highlight { font-size: 1rem; }
-    /* TÍTULOS DE SECCIÓN */
-    .family-info > h2, .locations > h2 { font-size: 1.45rem; line-height: 1.4; }
-    /* CARDS DE INFORMACIÓN */
-    .info-grid { display: grid; grid-template-columns: 1fr; width: 100%; }
-
-    .info-card { width: 100%; padding: 22px 18px; gap: 15px; }
-
-    .info-icon { min-width: 48px; width: 48px; height: 48px; font-size: 19px; }
-
-    .info-card h3 { font-size: 1.05rem; } .info-card p { font-size: 0.95rem; }
-
-    /* UBICACIONES */
-    .location-card { padding: 22px 18px; gap: 15px; border-radius: 14px; }
-
-    .location-icon { min-width: 48px; width: 48px; height: 48px; font-size: 19px; }
-
-    .location-content h3 { font-size: 1.05rem; }
-
-    .location-content p { font-size: 0.95rem; }
-
-    /* BOTÓN GOOGLE MAPS */
-    .location-button { width: 100%; justify-content: center; text-align: center; padding: 11px 14px; font-size: 0.9rem; }
-
-    /* MENSAJE FINAL */
-    .family-final { padding: 32px 18px; border-radius: 14px; }
-    
-    .family-final h2 { font-size: 1.5rem; }
-    
-    .family-final p { font-size: 0.95rem; }
-    
-    .back-home { width: 100%; justify-content: center; }
-}
-
-
-
-@media (max-width: 480px) {
-    .logo img {
-        width: 130px;
-    }
-
-
-    .hero h1 {
-        font-size: clamp(1.8rem, 9vw, 2.5rem);
-    }
-
-    .versiculos {
-        gap: 1.5rem;
-    }
-
-    .versiculo-card {
+    /* Mensaje de bienvenida */
+    .family-welcome {
+        padding: 25px 18px;
         border-radius: 14px;
     }
 
-    .versiculo-img {
-        height: 220px;
+    .family-welcome h2 { font-size: 1.5rem; }
+    .family-welcome p { font-size: 0.98rem; }
+    .welcome-highlight { font-size: 1rem; }
+
+    /* Títulos de sección */
+    .family-info > h2,
+    .locations > h2 {
+        font-size: 1.45rem;
+        line-height: 1.4;
     }
 
-    .versiculo-content {
-        padding: 1.4rem;
-    }
-
-    .versiculo-card blockquote {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .family-groups-page { padding: 30px 12px; } .family-groups-header h1 { font-size: 1.55rem; } .family-welcome { padding: 22px 15px; } .family-welcome h2 { font-size: 1.35rem; } .family-info > h2, .locations > h2 { font-size: 1.3rem; } /* En teléfonos pequeños mantenemos el icono a la izquierda y el contenido a la derecha, pero reducimos el espacio. */ .info-card, .location-card { gap: 12px; padding: 19px 14px; } .info-icon, .location-icon { min-width: 44px; width: 44px; height: 44px; font-size: 17px; } .info-card h3, .location-content h3 { font-size: 1rem; } .info-card p, .location-content p { font-size: 0.9rem; } .location-button { font-size: 0.85rem; }
-
-    .family-invitation {
-        flex-direction: column;
-
-        padding: 25px 18px;
-
-        text-align: center;
-
+    /* Tarjetas de información */
+    .info-card {
+        padding: 22px 18px;
         gap: 15px;
     }
 
-    .family-invitation-content h2 {
-        font-size: 1.3rem;
+    .info-icon,
+    .location-icon {
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+        font-size: 19px;
     }
 
-    .family-invitation-content p {
-        font-size: 0.93rem;
+    .info-card h3 { font-size: 1.05rem; }
+    .info-card p { font-size: 0.95rem; }
+
+    /* Ubicaciones */
+    .location-card {
+        padding: 22px 18px;
+        gap: 15px;
+        border-radius: 14px;
     }
 
-    .family-invitation-button {
+    .location-content h3 { font-size: 1.05rem; }
+    .location-content p { font-size: 0.95rem; }
+
+    /* Botón Google Maps */
+    .location-button {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 14px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Mensaje final */
+    .family-final {
+        padding: 32px 18px;
+        border-radius: 14px;
+    }
+
+    .family-final h2 { font-size: 1.5rem; }
+    .family-final p { font-size: 0.95rem; }
+
+    .back-home {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* ==========================================================
+   ≤ 480px · MÓVIL PEQUEÑO
+========================================================== */
+@media (width <= 30em) {
+
+    /* ⚠️ VERIFICAR (ver nota en ≤768px) */
+    .logo img { width: 130px; }
+
+
+    /* ---------- Hero: tarjetas de versículos ---------- */
+    .versiculo-card { border-radius: 0.875rem; }
+
+    .versiculo-img { height: 13.75rem; }      /* 220px */
+
+    .versiculo-card blockquote { line-height: 1.6; }
+
+
+    /* ---------- Invitación al Grupo Familiar ----------
+       La fila hace wrap: con flex-basis 100% el contenido baja bajo el icono
+       (mismo resultado que la columna original, sin chocar con flex: 1 1 15rem). */
+    .family-invitation {
+        justify-content: center;
+        gap: 1rem;
+        padding-inline: 1.125rem;
+        text-align: center;
+    }
+
+    .family-invitation-content { flex-basis: 100%; }
+
+    .family-invitation-title { font-size: 1.3rem; }
+
+    .family-invitation-text { font-size: 0.93rem; }
+
+    .family-invitation .btn {
         justify-content: center;
         width: 100%;
     }
 
+
+    /* ---------- Página de Grupos Familiares (→ family-groups.css) ---------- */
+    .family-groups-page { padding: 30px 12px; }
+
+    .family-groups-header h1 { font-size: 1.55rem; }
+
+    .family-welcome { padding: 22px 15px; }
+    .family-welcome h2 { font-size: 1.35rem; }
+
+    .family-info > h2,
+    .locations > h2 { font-size: 1.3rem; }
+
+    /* Teléfonos pequeños: icono a la izquierda y contenido a la derecha, con menos espacio */
+    .info-card,
+    .location-card {
+        gap: 12px;
+        padding: 19px 14px;
+    }
+
+    .info-icon,
+    .location-icon {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        font-size: 17px;
+    }
+
+    .info-card h3,
+    .location-content h3 { font-size: 1rem; }
+
+    .info-card p,
+    .location-content p { font-size: 0.9rem; }
+
+    .location-button { font-size: 0.85rem; }
 }
 
 
-/* ==========================================
-   AJUSTES DESKTOP (Pantallas grandes)
-========================================== */
-@media (min-width: 769px) {
-    .navbar {
-        position: relative; /* Quita el comportamiento fijo (sticky) en Desktop */
-    }
+/* ==========================================================
+   > 768px · ESCRITORIO
+========================================================== */
+@media (width > 48em) {
+    .navbar { position: relative; }           /* sin sticky en escritorio */
 }
